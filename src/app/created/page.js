@@ -1,50 +1,58 @@
-"use client";
-import React from "react";
-import BookCard from "../Dynamic/BookCard";
-import bookImage from "../assets/images/photo-output.jpg";
-import bookCreateImage from "../assets/images/photo-output_2.jpg";
-import { useCart } from "../context/CartContext";
+'use client';
 
-const bookData = {
-  id: 1,
-  title: "Who Created",
-  cloth: "○ Board book",
-  page: "○ Urdu/English",
-  size: "○ Size 5*5 inches",
-  price: 340,
-  oldPrice: 380,
-  image: bookImage,
-  hoverImage: bookCreateImage,
-  description: [
-    "…اور سب سے بہترین دعا 'اَلْـحَمْدُ لِلّٰہِ' ہے۔",
-    "(سنن ابن ماجہ: 3805)",
-    "پیارے نبی صلی اللہ علیہ وسلم نے فرمایا:",
-    "تم میں سے جس نے اس حال میں صبح کی کہ اس کا جسم صحیح سلامت ہو، اس کی جان بے خوف ہو اور اس کے پاس دن کا کھانا بھی میسر ہو، تو ایسا ہے جیسے اس کے لیے دنیا اکٹھی ہوگئی۔",
-    "(سنن ابن ماجہ: 4141)",
-    "آئیے! دل کے ہر حال میں 'اَلْـحَمْدُ لِلّٰہِ' کہنا اور کرنا سیکھیں۔",
-  ],
-};
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import DynamicCard from '@/app/Dynamic/DynamicCard';
+import Container from '@/app/Container';
 
-const Page = () => {
-  const { cartItems, addToCart } = useCart(); 
+// Example: reuse the same products or load different ones
+import Jannah from '@/app/assets/images/Jannah.jpg';
+import Annah from '@/app/assets/images/joy.jpg';
+
+// You can expand this list or import shared products if needed
+const products = [
+  {
+    id: 1,
+    title: "THE JOY OF JANNAH",
+    price: 500,
+    oldPrice: 600,
+    image: Jannah,
+    hoverImage: Annah,
+    description: `This book introduces Jannah in simple words with interesting details to spark imagination.`,
+  },
+];
+
+export default function CreatedPage() {
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldAnimate(true);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gray-50 p-4 space-y-10">
-      <BookCard
-        id={bookData.id}
-        title={bookData.title}
-        page={bookData.page}
-        cloth={bookData.cloth}
-        size={bookData.size}
-        price={bookData.price}
-        oldPrice={bookData.oldPrice}
-        image={bookData.image}
-        hoverImage={bookData.hoverImage}
-        description={bookData.description.join("<br />")}
-        onAddToCart={addToCart}
-      />
+    <div className="min-h-screen bg-white">
+      <Container>
+        <section className="py-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="pb-10"
+          >
+            <h2 className="text-lg text-gray-900 uppercase">New Release</h2>
+            <h3 className="text-2xl font-semibold mb-8">Created for You</h3>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {products.map((product) => (
+              <DynamicCard key={product.id} {...product} />
+            ))}
+          </div>
+        </section>
+      </Container>
     </div>
   );
-};
-
-export default Page;
+}
