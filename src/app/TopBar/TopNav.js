@@ -1,14 +1,16 @@
 "use client";
+
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../assets/images/saeed.png"; // Replace with your own logo
-import { FaInstagram, FaTwitter, FaYoutube, FaEnvelope } from "react-icons/fa";
-import { IoIosArrowDown } from "react-icons/io";
-import { CiSearch } from "react-icons/ci";
+import Logo from "../assets/images/saeed.png";
+import { FaInstagram, FaTwitter, FaYoutube, FaEnvelope, FaBars } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 
 const TopNav = () => {
   const [hoveredMenu, setHoveredMenu] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const menuItems = [
     {
@@ -45,11 +47,18 @@ const TopNav = () => {
     },
   ];
 
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
+    }
+  };
+
   return (
     <header className="w-full z-50 shadow">
-      {/* Top Social + Donate Bar */}
-      <div className="bg-gray-100 px-4 py-1 flex justify-between items-center text-sm">
-        <div className="flex space-x-3 text-gray-700">
+      {/* Top Bar */}
+      <div className="bg-gray-100 px-4 py-1 flex justify-between items-center text-sl">
+        <div className="text flex space-x-3">
           <FaInstagram />
           <FaTwitter />
           <FaYoutube />
@@ -58,60 +67,128 @@ const TopNav = () => {
         <div className="flex space-x-2">
           <Link
             href="/fundraise"
-            className="bg-orange-500 text-white px-3 py-1 rounded-sm text-sm hover:bg-orange-600"
+            className="bg-orange-500 text-white px-3 py-1 rounded-sl text-lg hover:bg-orange-600"
           >
             Fundraise for TCF
           </Link>
           <Link
             href="/donate"
-            className="bg-green-600 text-white px-3 py-1 rounded-sm text-sm hover:bg-green-700"
+            className="bg-green-600 text-white px-3 py-1 rounded-sl text-lg hover:bg-green-700"
           >
             Donate Now
           </Link>
         </div>
       </div>
 
-      {/* Main Navigation */}
-      <nav className="bg-white px-4 py-2 flex justify-between items-center">
+      {/* Navigation */}
+      <nav className="bg-white px-4 py-3 md:px-6 md:py-2 flex items-center justify-between relative flex-wrap">
         {/* Logo */}
-        <Link href="/">
-          <Image src={Logo} alt="Logo" width={160} height={60} priority />
+        <Link href="/" className="flex items-center">
+          <Image src={Logo} alt="Logo" width={130} height={40} priority />
         </Link>
 
-        {/* Nav Links */}
-        <ul className="hidden md:flex space-x-6 items-center text-gray-800 font-medium">
-          {menuItems.map((item) => (
-            <li
+        {/* Search Box - Desktop */}
+        <form
+          onSubmit={handleSearchSubmit}
+          className="hidden md:flex items-center ml-auto mr-4"
+        >
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+          />
+          <button
+            type="submit"
+            className="ml-2 px-3 py-1 bg-orange-500 text-white rounded-md hover:bg-orange-600"
+          >
+            Search
+          </button>
+        </form>
+
+        {/* Hamburger - Mobile */}
+        <button
+          className="md:hidden text-2xl"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <FaBars />
+        </button>
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex space-x-6 items-center font-medium text-2xl relative">
+          {menuItems.map((item, index) => (
+            <motion.li
               key={item.label}
-              className="relative group"
-              onMouseEnter={() => setHoveredMenu(item.label)}
+              className="relative cursor-pointer"
+              onMouseEnter={() => setHoveredMenu(index)}
               onMouseLeave={() => setHoveredMenu(null)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <Link href={item.link} className="flex items-center gap-1 hover:text-green-700">
+              <Link href={item.link} className="hover:text-orange-600">
                 {item.label}
-                {item.subItems && <IoIosArrowDown className="text-xs" />}
               </Link>
-              {item.subItems && hoveredMenu === item.label && (
-                <ul className="absolute left-0 top-full mt-2 bg-white border shadow rounded w-40 z-10">
-                  {item.subItems.map((sub) => (
-                    <li key={sub.name}>
-                      <Link
-                        href={sub.link}
-                        className="block px-4 py-2 hover:bg-gray-100"
-                      >
-                        {sub.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
+
+              {/* Submenu (Dropdown) */}
+              <AnimatePresence>
+                {item.subItems && hoveredMenu === index && (
+                  <motion.ul
+                    className="absolute left-0 mt-2 bg-white shadow-lg rounded-md py-2 z-50"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                  >
+                    {item.subItems.map((subItem) => (
+                      <li key={subItem.name}>
+                        <Link
+                          href={subItem.link}
+                          className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                        >
+                          {subItem.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </motion.ul>
+                )}
+              </AnimatePresence>
+            </motion.li>
           ))}
-          <li>
-            <CiSearch className="text-xl cursor-pointer hover:text-green-700" />
-          </li>
         </ul>
       </nav>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden px-4 py-2 bg-white shadow-md space-y-4">
+          {/* Optional: Mobile Search */}
+          <form onSubmit={handleSearchSubmit} className="flex space-x-2">
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+            />
+            <button
+              type="submit"
+              className="px-3 py-1 bg-orange-500 text-white rounded-md hover:bg-orange-600"
+            >
+              Search
+            </button>
+          </form>
+
+          {/* Menu Items */}
+          <ul className="space-y-4 text-lg">
+            {menuItems.map((item) => (
+              <li key={item.label}>
+                <Link href={item.link} onClick={() => setIsMobileMenuOpen(false)}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </header>
   );
 };

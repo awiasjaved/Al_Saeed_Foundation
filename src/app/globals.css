@@ -8,6 +8,9 @@
   .btn{
     @apply flex items-center space-x-2 bg-[#a84618] text-white px-6 py-3 rounded-full hover:bg-[#852b02] cursor-pointer
   }
+  .text{
+    @apply  text-black
+  }
 }
 @theme inline {
   /* --color-background: var(--background);
