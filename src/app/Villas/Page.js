@@ -1,72 +1,52 @@
+// components/StatsSection.tsx
 "use client";
 
+import React from "react";
 import Image from "next/image";
-import Shop from "../assets/images/shop.png"
-import Container from "../Container";
-import { motion } from "framer-motion";
 
-const properties = [
-  {
-    id: 1,
-    image: Shop,
-  },
-];
+const StatsSection = () => {
+  const stats = [
+    {
+      imgSrc: "/images/hourglass.png",
+      alt: "Hourglass",
+      label: "Years",
+      value: "3",
+    },
+    {
+      imgSrc: "/images/school.png",
+      alt: "School Building",
+      label: "School Units",
+      value: "02 No’s",
+    },
+    {
+      imgSrc: "/images/students.png",
+      alt: "Students",
+      label: "Students",
+      value: "436",
+    },
+  ];
 
-const PropertyCard = () => {
   return (
-    <div
-    className="max-h-full bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: "url('/back.png')" }}
-  >
-      <div className="flex flex-wrap justify-center items-center gap-6">
-        {properties.map((property, index) => (
-          <motion.div
-            key={property.id}
-            className="w-full sm:w-11/12 md:w-8/12  overflow-hidden flex flex-col"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1,
-              ease: "easeOut",
-              delay: index * 0.3,
-            }}
-            viewport={{ once: false, amount: 0.3 }}
-          >
-            <motion.div
-              className="relative h-[300px] sm:h-[500px] md:h-[600px] w-full rounded-xl overflow-hidden"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 1,
-                ease: "easeOut",
-                delay: index * 0.3,
-              }}
-              viewport={{ once: false, amount: 0.3 }}
-            >
+    <section className="py-12 bg-gray-50">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+        {stats.map(({ imgSrc, alt, label, value }, idx) => (
+          <div key={idx} className="flex flex-col items-center">
+            <div className="w-14 h-14 relative">
               <Image
-                src={property.image}
-                alt={property.title}
-                layout="fill"
-                objectFit="cover"
-                className="transition-transform duration-500"
+                src={imgSrc}
+                alt={alt}
+                fill
+                sizes="56px"
+                style={{ objectFit: "contain" }}
               />
-              <div className="absolute inset-0 bg-[#FBDFB0]/30 rounded-xl" />
-            </motion.div>
-
-            <div className="px-4 py-5">
-              <h3 className="text-3xl font-light text-stone-800 mb-3">
-                {property.title}
-              </h3>
-              <p className="text-lg text-stone-600 leading-relaxed">
-                {property.description}
-              </p>
             </div>
-          </motion.div>
+            <h4 className="mt-4 text-xl font-semibold">{label}</h4>
+            <p className="mt-2 text-3xl font-bold">{value}</p>
+          </div>
         ))}
       </div>
-    </div>
-
+    </section>
   );
 };
 
-export default PropertyCard;
+export default StatsSection;

@@ -1,93 +1,73 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
-import Image from "next/image";
+import React from "react";
 
-// Images
-import Once from "../assets/images/oneupontime.png";
-import Mekael from "../assets/images/circleMikaelgoes.png";
-import Your from "../assets/images/CourtYour.png";
-import Jannah from "../assets/images/the joy of jannah.png";
-import Maza from "../assets/images/mazaaya.png";
-import ADAY from "../assets/images/aday.png";
-import OUR from "../assets/images/ourstory.png";
-import OURNabi from "../assets/images/ournabi.png";
-import Adventure from "../assets/images/adventure.png";
-
-const Page = () => {
-  const collections = [
-    { age: "Once Upon a Revelation", image: Once, alt: "Once " },
-    { age: "Mekael goes to Madinah", image: Mekael, alt: "Mekael" },
-    { age: "Count your way to Jannah", image: Your, alt: "Your " },
-    { age: "The joys of Jannah", image: Jannah, alt: "Jannah" },
-    { age: "Khoob Maza Aya", image: Maza, alt: "Maza " },
-    { age: "A Day in the Life of Muslim", image: ADAY, alt: "ADAY" },
-    { age: "Our Stars", image: OUR, alt: "OUR" },
-    { age: "Our Nabi ", image: OURNabi, alt: "OURNabi" },
-    { age: "Safas Colorful Adventures", image: Adventure, alt: "Adventure" },
-  ];
-
-  const repeatedCollections = [...collections, ...collections];
-  const controls = useAnimation();
-  const scrollRef = useRef();
-  const [totalWidth, setTotalWidth] = useState(0);
-
-  useEffect(() => {
-    const scrollWidth = scrollRef.current?.scrollWidth || 0;
-    const offsetWidth = scrollRef.current?.offsetWidth || 0;
-    const actualScroll = scrollWidth - offsetWidth;
-
-    setTotalWidth(actualScroll);
-
-    controls.start({
-      x: [0, -scrollWidth / 2],
-      transition: {
-        duration: 40,
-        ease: "linear",
-        repeat: Infinity,
-      },
-    });
-  }, [controls]);
-
+const AboutTCF = () => {
   return (
-    <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/desktop_background.png')" }}
-    >
-      <div className="h-[60vh]">
-        <h1 className="text-3xl font-bold text-center pt-20 pb-20 text-black drop-shadow-md">
-          Little Mumins Collection
-        </h1>
-        <div className="relative overflow-hidden" ref={scrollRef}>
-          <motion.div animate={controls} className="flex gap-1 px-10 py-4">
-            {repeatedCollections.map((collection, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-64 sm:w-72 md:w-80 lg:w-96 xl:w-[400px]"
-              >
-                <div className="flex flex-col">
-                  <div className="rounded-full p-1 mb-3 overflow-hidden w-48 h-48 mx-auto relative flex items-center justify-center bg-white shadow-md">
-                    <Image
-                      src={collection.image}
-                      alt={collection.alt}
-                      fill
-                      style={{ objectFit: "cover" }}
-                      className="rounded-full"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                  </div>
-                  <p className="text-xl font-medium text-center ">
-                    {collection.age}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </motion.div>
+    <section className="py-16 px-4 bg-white">
+      {/* Heading + intro */}
+      <div className="max-w-3xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+          About Al-Saeed Foundation
+        </h2>
+        <p className="text-gray-700 leading-relaxed">
+          The Al-Saeed Foundation is a charitable organization committed to uplifting the lives of 
+impoverished individuals and orphaned children. Through its various programs and initiatives, 
+the foundation provides essential support, including education, healthcare, and social 
+assistance, to those in need. With a mission to make a positive impact on the lives of the less 
+fortunate, the Al Saeed Foundation plays a vital role in fostering hope and opportunities for a 
+better future.
+The Al-Saeed Foundation is a compassionate and dedicated organization that focuses on 
+serving impoverished individuals and orphaned children.
+We are a non-profit organization with a strong commitment to making a positive difference in 
+the lives of those facing economic hardship and orphanhood our mission is to provide essential 
+support, including education, healthcare, and social assistance, to help these vulnerable 
+individuals lead better and more fulfilling lives.Through our work, we aim to offer hope and 
+opportunities for a brighter future to those in need.
+        </p>
+      </div>
+
+      {/* Three columns: Vision / Mission / Values */}
+      <div className="max-w-6xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Vision */}
+        <div className="text-center px-4">
+          <h3 className="text-2xl font-semibold text-green-500 mb-2">
+            Vision
+          </h3>
+          <h4 className="text-lg font-medium mb-4">Positive Change</h4>
+          <p className="text-gray-600 leading-relaxed">
+            to remove barries of class and privilege to make the citizens of Pakistan agents of positive 
+change.   
+          </p>
+        </div>
+
+        {/* Mission */}
+        <div className="text-center px-4">
+          <h3 className="text-2xl font-semibold text-orange-500 mb-2">
+            Mission
+          </h3>
+          <h4 className="text-lg font-medium mb-4">Education / Future</h4>
+          <p className="text-gray-600 leading-relaxed">
+            Through the power of quality education enabling moral, spiritual
+            and intellectual enlightenment.
+          </p>
+        </div>
+
+        {/* Values */}
+        <div className="text-center px-4">
+          <h3 className="text-2xl font-semibold text-green-700 mb-2">
+            Values
+          </h3>
+          <ul className="text-gray-600 space-y-1">
+            <li>Sincerity</li>
+            <li>Service</li>
+            <li>Beauty</li>
+            <li>Positive Conduct</li>
+          </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Page;
+export default AboutTCF;
