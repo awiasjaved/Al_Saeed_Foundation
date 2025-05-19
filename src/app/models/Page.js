@@ -6,45 +6,40 @@ import Image from "next/image";
 
 const features = [
   {
-    src: "/images/model/catering.png",
+    src: "/images/catering.png",
     alt: "Catering to the most needy",
     desc: "Catering to the most needy",
   },
   {
-    src: "/images/model/embedded.png",
+    src: "/images/embedding s.png",
     alt: "Embedding schools in the heart of urban slums & rural communities",
     desc: "Embedding schools in the heart of urban slums & rural communities",
   },
   {
-    src: "/images/model/purpose-built.png",
+    src: "/images/holistic.png",
     alt: "Purpose-built schools",
     desc: "Purpose-built schools",
   },
   {
-    src: "/images/model/female-faculty.png",
+    src: "/images/ensuring.png",
     alt: "All female faculty & a 50% female student gender ratio",
     desc: "All female faculty & a 50% female student gender ratio",
   },
   {
-    src: "/images/model/quality-education.png",
+    src: "/images/purpose.png",
     alt: "Ensuring a high quality of education",
     desc: "Ensuring a high quality of education",
   },
   {
-    src: "/images/model/holistic-support.png",
+    src: "/images/uplifting.png",
     alt: "Holistic student development & alumni support",
     desc: "Holistic student development & alumni support",
   },
   {
-    src: "/images/model/uplift-community.png",
+    src: "/images/professional.png",
     alt: "Uplifting the entire community",
     desc: "Uplifting the entire community",
-  },
-  {
-    src: "/images/model/management.png",
-    alt: "Professional Management",
-    desc: "Professional Management",
-  },
+  }
 ];
 
 const Model = () => (
@@ -54,7 +49,7 @@ const Model = () => (
     </h2>
     <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
       {features.map((f, idx) => (
-        <div key={idx} className="flex flex-col items-center text-center px-4">
+        <div key={idx} className="flex flex-col items-center text-center px-7">
           <div className="w-16 h-16 mb-4 relative">
             <Image
               src={f.src}
