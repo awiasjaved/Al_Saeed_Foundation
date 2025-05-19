@@ -4,7 +4,13 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "../assets/images/saeed.png";
-import { FaInstagram, FaTwitter, FaYoutube, FaEnvelope, FaBars } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaTwitter,
+  FaYoutube,
+  FaEnvelope,
+  FaBars,
+} from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
 const TopNav = () => {
@@ -55,7 +61,7 @@ const TopNav = () => {
   };
 
   return (
-    <header className="w-full z-50 shadow">
+    <header className="fixed top-0 left-0 w-full z-[999] bg-white shadow">
       {/* Top Bar */}
       <div className="bg-gray-100 px-4 py-1 flex justify-between items-center text-sl">
         <div className="text flex space-x-3">
@@ -84,10 +90,8 @@ const TopNav = () => {
       <nav className="bg-white px-4 py-3 md:px-6 md:py-2 flex items-center justify-between relative flex-wrap">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <Image src={Logo} alt="Logo" width={130} height={40} priority />
+          <Image src={Logo} alt="Logo" width={100} height={30} priority />
         </Link>
-
-        {/* Search Box - Desktop */}
         <form
           onSubmit={handleSearchSubmit}
           className="hidden md:flex items-center ml-auto mr-4"

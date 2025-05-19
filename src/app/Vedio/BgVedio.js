@@ -6,38 +6,38 @@ import bg from "../assets/images/Al Saeed Foundation desktop.png";
 
 const DonateSection = () => {
   return (
-    <div className="relative w-full h-[60vh]">
-      {/* Full-bleed background image */}
-      <Image
-        src={bg}
-        alt="Students"
-        fill
-        style={{ objectFit: "cover", objectPosition: "center" }}
-      />
+<div className="relative w-full h-[70vh] mt-40">
+  {/* Full-bleed background image */}
+  <Image
+    src={bg}
+    alt="Students"
+    fill
+    style={{ objectFit: "cover", objectPosition: "center" }}
+  />
 
-      {/* Overlay gradient + text */}
-      <div
-        className="
-          absolute inset-0
-          bg-gradient-to-r 
-          flex flex-col justify-center items-start
-          px-6 md:px-20
-        "
-      >
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800">
-          Change begins with
-        </h1>
-        <h1 className="pl-8 text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800">
-          <span className="bg-green-300 px-2">EDUCATION</span>
-        </h1>
-        <p className="pl-7 mt-4 text-lg md:text-xl text-gray-700">
-          Donate to educate less-privileged children
-        </p>
-        <button className="mt-6 bg-green-300 hover:bg-green-400 text-black font-semibold px-12 py-3 rounded-lg">
-          Donate Now
-        </button>
-      </div>
-    </div>
+  {/* Overlay gradient + text */}
+  <div className="absolute inset-0 bg-gradient-to-r flex flex-col justify-center items-start px-6 md:px-20 text-left">
+    
+    {/* Urdu Heading */}
+<h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#2f3191] font-[Noto Nastaliq Urdu] leading-snug text-center pl-4 md:pl-12">
+  تعلیم و تربیت ساتھ ساتھ
+</h1>
+    {/* English Subtitle */}
+    <h2 className="mt-4 text-base md:text-3xl text-black font-medium">
+      Donate to educate less-privileged children in Pakistan
+    </h2>
+
+    {/* Donate Button */}
+<button className="mt-8 bg-[#ff0000] hover:bg-[#ae0000] text-white font-semibold px-14 py-3 rounded-md text-lg shadow-md ml-36">
+  Donate Now
+</button>
+
+
+  </div>
+</div>
+
+
+
   );
 };
 
