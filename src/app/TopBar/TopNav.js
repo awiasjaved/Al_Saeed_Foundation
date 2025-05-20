@@ -63,23 +63,26 @@ const TopNav = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-[999] bg-white shadow">
       {/* Top Bar */}
-      <div className="bg-gray-100 px-4 py-1 flex justify-between items-center text-sm">
-        <div className="flex space-x-3 text-gray-600">
+      <div className="bg-gray-100 px-4 py-1 flex justify-between items-center text-sm flex-wrap">
+        {/* Social Icons - Hidden on sm and md */}
+        <div className="hidden md:flex space-x-3 text-red-500">
           <FaInstagram />
           <FaTwitter />
           <FaYoutube />
           <FaEnvelope />
         </div>
-        <div className="flex space-x-2">
+
+        {/* Buttons - Always side by side */}
+        <div className="flex flex-row space-x-2 mt-2 sm:mt-0">
           <Link
             href="/fundraise"
-            className="bg-[#ff0000] text-white px-3 py-1 rounded text-sm hover:bg-orange-600"
+            className="bg-[#303295] text-white px-3 py-1 rounded text-sm hover:bg-[#292947] text-center"
           >
             Fundraise for TCF
           </Link>
           <Link
             href="/donate"
-            className="bg-[#ff0000] text-white px-3 py-1 rounded text-sm hover:bg-[#ae0000]"
+            className="bg-[#ff0000] text-white px-3 py-1 rounded text-sm hover:bg-[#ae0000] text-center"
           >
             Donate Now
           </Link>
@@ -87,31 +90,11 @@ const TopNav = () => {
       </div>
 
       {/* Navigation */}
-      <nav className="bg-white px-4 py-3 md:px-6 md:py-2 flex items-center justify-between relative flex-wrap">
+      <nav className="bg-white px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24 py-3 flex items-center justify-between relative flex-wrap">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image src={Logo} alt="Logo" width={100} height={30} priority />
         </Link>
-
-        {/* Desktop Search */}
-        <form
-          onSubmit={handleSearchSubmit}
-          className="hidden lg:flex items-center ml-auto mr-4"
-        >
-          <input
-            type="text"
-            placeholder="Search..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
-          <button
-            type="submit"
-            className="ml-2 px-3 py-1 bg-orange-500 text-white rounded-md hover:bg-orange-600"
-          >
-            Search
-          </button>
-        </form>
 
         {/* Hamburger - Mobile */}
         <button
@@ -132,7 +115,7 @@ const TopNav = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Link href={item.link} className="hover:text-orange-600">
+              <Link href={item.link} className="hover:text-[#ff0000]">
                 {item.label}
               </Link>
 
@@ -165,7 +148,7 @@ const TopNav = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden px-4 py-2 bg-white shadow-md space-y-4">
+        <div className="lg:hidden px-4 py-4 bg-white shadow-md space-y-4">
           {/* Mobile Search */}
           <form onSubmit={handleSearchSubmit} className="flex space-x-2">
             <input
@@ -173,11 +156,11 @@ const TopNav = () => {
               placeholder="Search..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
             <button
               type="submit"
-              className="px-3 py-1 bg-orange-500 text-white rounded-md hover:bg-orange-600"
+              className="px-3 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600"
             >
               Search
             </button>

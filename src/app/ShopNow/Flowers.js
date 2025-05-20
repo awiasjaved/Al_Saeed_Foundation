@@ -5,21 +5,7 @@ import bgImage from '../assets/images/onespark.png'
 import { FaArrowRight } from "react-icons/fa6";
 import { motion } from "framer-motion";
 const Flowers = () => {
-  const title = [
-    { char: "L", color: "text-[#5eb192]" },
-    { char: "I", color: "text-[#e8c74e]" },
-    { char: "T", color: "text-[#dd7984]" },
-    { char: "T", color: "text-[#5eb192]" },
-    { char: "L", color: "text-[#dd7984]" },
-    { char: "E", color: "text-[#589cb2]" },
-    { char: " ", color: "" },
-    { char: "M", color: "text-[#e8c74e]" },
-    { char: "U", color: "text-[#dd7984]" },
-    { char: "M", color: "text-[#589cb2]" },
-    { char: "I", color: "text-[#a6bf5c]" },
-    { char: "N", color: "text-[#e8c74e]" },
-    { char: "S", color: "text-[#dd7984]" },
-  ];
+
 
   return (
    
@@ -30,7 +16,7 @@ const Flowers = () => {
         className="w-full h-[90vh] bg-cover bg-center"
         style={{ backgroundImage: `url(${bgImage.src})` }}
       >
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 "></div>
       </div>
     </div>
   

@@ -55,13 +55,10 @@ const Model = () => (
     </h2>
     <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 items-center">
       {features.map((f, idx) => (
-        <motion.div
-          key={idx}
+        <div
+          
           className="flex flex-col items-center text-center px-7"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: idx * 0.2, ease: "easeOut" }}
-          viewport={{ once: false, amount: 0.2 }}
+
         >
           <div className="w-20 h-20 mb-4 relative">
             <Image
@@ -73,7 +70,7 @@ const Model = () => (
             />
           </div>
           <p className="text">{f.desc}</p>
-        </motion.div>
+        </div>
       ))}
     </div>
   </section>
