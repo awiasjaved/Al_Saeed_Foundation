@@ -63,8 +63,8 @@ const TopNav = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-[999] bg-white shadow">
       {/* Top Bar */}
-      <div className="bg-gray-100 px-4 py-1 flex justify-between items-center text-sl">
-        <div className="text flex space-x-3">
+      <div className="bg-gray-100 px-4 py-1 flex justify-between items-center text-sm">
+        <div className="flex space-x-3 text-gray-600">
           <FaInstagram />
           <FaTwitter />
           <FaYoutube />
@@ -73,13 +73,13 @@ const TopNav = () => {
         <div className="flex space-x-2">
           <Link
             href="/fundraise"
-            className="bg-orange-500 text-white px-3 py-1 rounded-sl text-lg hover:bg-orange-600"
+            className="bg-orange-500 text-white px-3 py-1 rounded text-sm hover:bg-orange-600"
           >
             Fundraise for TCF
           </Link>
           <Link
             href="/donate"
-            className="bg-green-600 text-white px-3 py-1 rounded-sl text-lg hover:bg-green-700"
+            className="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700"
           >
             Donate Now
           </Link>
@@ -92,9 +92,11 @@ const TopNav = () => {
         <Link href="/" className="flex items-center">
           <Image src={Logo} alt="Logo" width={100} height={30} priority />
         </Link>
+
+        {/* Desktop Search */}
         <form
           onSubmit={handleSearchSubmit}
-          className="hidden md:flex items-center ml-auto mr-4"
+          className="hidden lg:flex items-center ml-auto mr-4"
         >
           <input
             type="text"
@@ -113,21 +115,21 @@ const TopNav = () => {
 
         {/* Hamburger - Mobile */}
         <button
-          className="md:hidden text-2xl"
+          className="lg:hidden text-2xl"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <FaBars />
         </button>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-6 items-center font-medium text-2xl relative">
+        <ul className="hidden lg:flex space-x-6 items-center font-medium text-base">
           {menuItems.map((item, index) => (
             <motion.li
               key={item.label}
               className="relative cursor-pointer"
               onMouseEnter={() => setHoveredMenu(index)}
               onMouseLeave={() => setHoveredMenu(null)}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <Link href={item.link} className="hover:text-orange-600">
@@ -138,7 +140,7 @@ const TopNav = () => {
               <AnimatePresence>
                 {item.subItems && hoveredMenu === index && (
                   <motion.ul
-                    className="absolute left-0 mt-2 bg-white shadow-lg rounded-md py-2 z-50"
+                    className="absolute left-0 mt-2 bg-white shadow-lg rounded-md py-2 z-50 w-48"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
@@ -163,8 +165,8 @@ const TopNav = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden px-4 py-2 bg-white shadow-md space-y-4">
-          {/* Optional: Mobile Search */}
+        <div className="lg:hidden px-4 py-2 bg-white shadow-md space-y-4">
+          {/* Mobile Search */}
           <form onSubmit={handleSearchSubmit} className="flex space-x-2">
             <input
               type="text"
@@ -181,8 +183,8 @@ const TopNav = () => {
             </button>
           </form>
 
-          {/* Menu Items */}
-          <ul className="space-y-4 text-lg">
+          {/* Mobile Menu Items */}
+          <ul className="space-y-4 text-base">
             {menuItems.map((item) => (
               <li key={item.label}>
                 <Link href={item.link} onClick={() => setIsMobileMenuOpen(false)}>

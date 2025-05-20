@@ -16,7 +16,7 @@ const kepler = localFont({
 const bubbleGum = localFont({
   src: [
     {
-      path: "../../public/Font/KeplerStd-BoldScnDisp.woff",
+      path: "../../public/Font/Inter-SemiBold.otf",
       weight: "400",
     },
   ],
