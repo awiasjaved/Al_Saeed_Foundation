@@ -3,7 +3,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+
 
 const features = [
   {
@@ -56,7 +56,7 @@ const Model = () => (
     <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 items-center">
       {features.map((f, idx) => (
         <div
-          
+          key={idx}
           className="flex flex-col items-center text-center px-7"
 
         >

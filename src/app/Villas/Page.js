@@ -3,7 +3,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+
 
 const StatsSection = () => {
   const stats = [
@@ -32,12 +32,11 @@ const StatsSection = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
         {stats.map(({ imgSrc, alt, label, value }, idx) => (
           <div
-           
+            key={idx}
             className="flex flex-col items-center p-6 rounded-xl bg-white"
        
           
-            transition={{ duration: 0.7, ease: "easeOut", delay: idx * 0.2 }}
-            viewport={{ once: false, amount: 0.3 }}
+            
           >
             <div className="w-24 h-24 relative">
               <Image

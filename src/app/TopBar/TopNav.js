@@ -150,21 +150,7 @@ const TopNav = () => {
       {isMobileMenuOpen && (
         <div className="lg:hidden px-4 py-4 bg-white shadow-md space-y-4">
           {/* Mobile Search */}
-          <form onSubmit={handleSearchSubmit} className="flex space-x-2">
-            <input
-              type="text"
-              placeholder="Search..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
-            />
-            <button
-              type="submit"
-              className="px-3 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600"
-            >
-              Search
-            </button>
-          </form>
+          
 
           {/* Mobile Menu Items */}
           <ul className="space-y-4 text-base">
