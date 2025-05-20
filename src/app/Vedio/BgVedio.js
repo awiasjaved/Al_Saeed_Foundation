@@ -9,7 +9,7 @@ const DonateSection = () => {
   return (
     <div className="relative w-full mt-20 md:mt-40">
       {/* Container for responsive height */}
-      <div className="h-[80vh] md:h-[70vh] relative w-full">
+      <div className="h-[75vh] md:h-[70vh] relative w-full">
         {/* Responsive Background Image */}
         <div className="absolute inset-0 z-0">
           {/* Mobile Image */}
