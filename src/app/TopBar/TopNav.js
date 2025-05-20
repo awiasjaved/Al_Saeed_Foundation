@@ -73,13 +73,13 @@ const TopNav = () => {
         <div className="flex space-x-2">
           <Link
             href="/fundraise"
-            className="bg-orange-500 text-white px-3 py-1 rounded text-sm hover:bg-orange-600"
+            className="bg-[#ff0000] text-white px-3 py-1 rounded text-sm hover:bg-orange-600"
           >
             Fundraise for TCF
           </Link>
           <Link
             href="/donate"
-            className="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700"
+            className="bg-[#ff0000] text-white px-3 py-1 rounded text-sm hover:bg-[#ae0000]"
           >
             Donate Now
           </Link>
