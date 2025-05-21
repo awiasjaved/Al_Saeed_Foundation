@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import LoaderImage from "./assets/images/little_mumins_5.png";
+import LoaderImage from "./assets/images/saeed.png";
 
 function Loader2({ children }) {
   const pathname = usePathname();
