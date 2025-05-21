@@ -12,8 +12,8 @@ const FooterEnd = () => {
       <div className="text-center py-10 px-4">
         <h2 className="text-2xl font-semibold mb-4 text-gray-800">Contact Us</h2>
         <p className="text-gray-700 leading-relaxed">
-           Baba Makhan Gujjar Street Nawaz Mor Bagrian Lahore <br /> 
-           325 Block No 1 Sector C-1 Township, Lahore, Pakistan.         .
+            Nawaz Mor Bagrian Chowk Green Town Lahore <br /> 
+           Lahore, Pakistan.         .
         </p>
 
         {/* Contact Icons */}
