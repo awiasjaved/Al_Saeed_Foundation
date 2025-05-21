@@ -10,12 +10,12 @@ const Flowers = () => {
     <div className="relative h-[90vh] w-full">
       {/* Responsive Background Images */}
       <div className="absolute inset-0 z-0">
-        {/* Mobile Background */}
+        {/* Mobile BG */}
         <div
           className="block md:hidden w-full h-full bg-cover bg-center"
           style={{ backgroundImage: `url(${mobileBg.src})` }}
         />
-        {/* Desktop Background */}
+        {/* Desktop BG */}
         <div
           className="hidden md:block w-full h-full bg-cover bg-center"
           style={{ backgroundImage: `url(${desktopBg.src})` }}
@@ -23,16 +23,30 @@ const Flowers = () => {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative w-full h-full flex flex-col items-center justify-end text-center px-4 sm:px-6 md:px-10">
-        {/* Button */}
-        <Link href="/bookshop">
-          <button className="mt-8 bg-[#ff0000] hover:bg-[#ae0000] text-white font-semibold px-14 py-3 rounded-md text-lg shadow-md md:ml-0  ">
-            <div className="flex items-center gap-2">
-              Donate Now
-              <FaArrowRight />
-            </div>
-          </button>
-        </Link>
+      <div className="relative w-full h-full flex flex-col justify-end">
+        {/* Button wrapper positions itself differently per breakpoint */}
+        <div
+          className="
+            absolute
+            bottom-100
+            left-1/2
+            transform -translate-x-1/2
+
+            md:bottom-50
+            md:right-200
+            md:left-auto
+            md:transform-none
+          "
+        >
+          <Link href="/bookshop">
+            <button className="bg-[#ff0000] hover:bg-[#ae0000] text-white font-semibold px-14 py-3 rounded-md text-lg shadow-md">
+              <div className="flex items-center gap-2">
+                Donate Now
+                <FaArrowRight />
+              </div>
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
