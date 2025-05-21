@@ -4,7 +4,6 @@
 import React from "react";
 import Image from "next/image";
 
-
 const features = [
   {
     src: "/images/catering.png",
@@ -49,7 +48,7 @@ const features = [
 ];
 
 const Model = () => (
-  <section className="py-16 px-4 bg-white h-[90vh]">
+  <section className="py-16 px-4 bg-white min-h-[90vh]">
     <h2 className="text-4xl text-[#2f3192] md:text-4xl font-semibold text-center mb-12">
       Our Model
     </h2>
@@ -58,7 +57,6 @@ const Model = () => (
         <div
           key={idx}
           className="flex flex-col items-center text-center px-7"
-
         >
           <div className="w-20 h-20 mb-4 relative">
             <Image
