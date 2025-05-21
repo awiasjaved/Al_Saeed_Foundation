@@ -8,12 +8,12 @@ const About = () => {
     <section className="py-16 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-32 bg-white min-h-screen">
       {/* Heading + intro */}
       <div className="max-w-5xl mx-auto text-center">
-        <h2
-          className="text-3xl sm:text-4xl lg:text-5xl text-[#ff0000] font-semibold mb-6 pt-20 leading-snug"
-        
-        >
-          About Al-Saeed Foundation
-        </h2>
+     <h2
+  className="text-2xl sm:text-4xl lg:text-5xl text-[#ff0000] font-semibold mb-6 pt-20 leading-snug text-center px-4"
+>
+  About Al-Saeed Foundation
+</h2>
+
 
         <p
           className="text-base sm:text-lg leading-relaxed text-justify sm:text-center pt-6"
