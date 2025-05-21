@@ -11,7 +11,7 @@ const StatsSection = () => {
       imgSrc: "/images/hourglass.png",
       alt: "Hourglass",
       label: "Years",
-      value: "3",
+      value: "4",
     },
     {
       imgSrc: "/images/school-removebg-preview.png",

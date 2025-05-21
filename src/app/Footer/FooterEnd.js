@@ -20,7 +20,7 @@ const FooterEnd = () => {
         <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-6 text-grey-300 text-lg">
           <div className="flex items-center gap-2">
             <FaPhone className="text-green-600 text-2xl" />
-            <span>Phone:0303-5726653  0301-8417786  0301-4005270</span>
+            <span> 0301-8417786  0301-4005270</span>
           </div>
           <div className="flex items-center gap-2">
             <FaEnvelope className="text-green-600" />
