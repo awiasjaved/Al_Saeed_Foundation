@@ -22,7 +22,7 @@ const DonateSection = () => {
   return (
     <div className="relative w-full mt-20 md:mt-40">
       {/* Container for responsive height */}
-      <div className="h-[90vh] md:h-[70vh] relative w-full">
+      <div className="h-[100vh] md:h-[70vh] relative w-full">
         {/* Responsive Background Image */}
         <div className="absolute inset-0 z-0">
           {/* Mobile Image */}
@@ -86,9 +86,9 @@ const DonateSection = () => {
 
 
           {/* English Subtitle */}
-          <h3 className="mt-2 sm:mt-4 text-base sm:text-md lg:text-lg text-black font-medium whitespace-nowrap text-center md:text-left">
+          <h2 className="mt-2 sm:mt-4 text-base sm:text-md lg:text-lg text-black font-medium whitespace-nowrap text-center md:text-left">
             Donate to educate less-privileged children in Pakistan
-          </h3>
+          </h2>
 
 
 
