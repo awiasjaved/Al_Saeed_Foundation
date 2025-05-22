@@ -74,12 +74,14 @@ const TopNav = () => {
 
         {/* Buttons - Always side by side */}
         <div className="flex flex-row space-x-2 mt-2 sm:mt-0">
-          <Link
-            href="/fundraise"
-            className="bg-[#303295] text-white px-3 py-1 rounded text-sm hover:bg-[#292947] text-center"
-          >
-            Fundraise for TCF
-          </Link>
+       <Link
+  href="https://wa.me/923035726653"
+  className="bg-[#303295] text-white px-3 py-1 rounded text-sm hover:bg-[#292947] text-center"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Fundraise for TCF
+</Link>
           <Link
             href="/donate"
             className="bg-[#ff0000] text-white px-3 py-1 rounded text-sm hover:bg-[#ae0000] text-center"
