@@ -4,48 +4,59 @@ import React from "react";
 import { FaPhone, FaEnvelope, FaFax } from "react-icons/fa";
 import Image from "next/image";
 
-
 const FooterEnd = () => {
-    return (
+  return (
     <footer className="bg-white">
       {/* Contact Info Section */}
-      <div className="text-center py-10 px-4">
-        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Contact Us</h2>
-        <p className="text-gray-700 leading-relaxed">
-            Nawaz Mor Bagrian Chowk Green Town Lahore <br /> 
-           Lahore, Pakistan.         .
+      <div className="container mx-auto text-center py-8 px-4 sm:py-10">
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-4 text-gray-800">
+          Contact Us
+        </h2>
+        <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+          Nawaz Mor Bagrian Chowk Green Town Lahore <br />
+          Lahore, Pakistan.
         </p>
 
         {/* Contact Icons */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-6 text-grey-300 text-lg">
+        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mt-6">
           <div className="flex items-center gap-2">
-            <FaPhone className="text-green-600 text-2xl" />
-            <span> 0301-8417786  0301-4005270</span>
+            <FaPhone className="text-green-600 text-xl sm:text-2xl" />
+            <span className="text-sm sm:text-base">
+              0301-8417786 / 0301-4005270
+            </span>
           </div>
           <div className="flex items-center gap-2">
-            <FaEnvelope className="text-green-600" />
-            <span>Email:  alsaeedfoundation12@gmail.com  hafizamirsaeed906@gmail.com</span>
+            <FaEnvelope className="text-green-600 text-xl sm:text-2xl" />
+            <span className="text-sm sm:text-base">
+              alsaeedfoundation12@gmail.com / hafizamirsaeed906@gmail.com
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <FaFax className="text-green-600 text-xl sm:text-2xl" />
+            <span className="text-sm sm:text-base">+92-42-XXXXXXX</span>
           </div>
         </div>
-
-        {/* Logos */}
-     
       </div>
 
       {/* Bottom Footer */}
-      <div className="bg-[#ff0000] text-md text-white  py-3 px-4 flex flex-col md:flex-row justify-between items-center">
-        <p className="mb-2 md:mb-0">© 2025 Al Saeed Foundation. All Rights Reserved.</p>
-        <div className="flex gap-4">
-          <a href="#" className="hover:underline">Privacy Policy</a>
-          <a href="#" className="hover:underline">Contact Us</a>
-          <span>Managed By: Al Saeed Group</span>
+      <div className="bg-red-600 text-white text-sm sm:text-md py-3 px-4 flex flex-col sm:flex-row justify-between items-center">
+        <p className="mb-2 sm:mb-0">© 2025 Al Saeed Foundation. All Rights Reserved.</p>
+        <div className="flex flex-wrap gap-4">
+          <a href="#" className="hover:underline">
+            Privacy Policy
+          </a>
+          <a href="#" className="hover:underline">
+            Contact Us
+          </a>
+          <span className="text-sm sm:text-base">Managed By: Al Saeed Group</span>
         </div>
       </div>
     </footer>
   );
-}
+};
 
 export default FooterEnd;
+
 
 
 

@@ -2,10 +2,12 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import FooterEnd from "../Footer/FooterEnd";
-import Flowers from "../ShopNow/Flowers";
-import Story from "../OurStory/Story";
+// import Flowers from "../ShopNow/Flowers";
+// import Story from "../OurStory/Story";
 import bgImageDesktop from "../assets/images/stab.jpg";
 import bgImageMobile from "../assets/images/stab.jpg";
+import Subscribe from "../Subscribe/page"
+import Ourjurney from "../our_jurney/page"
 
 // Animation config
 const textAnimation = {
@@ -25,13 +27,13 @@ const textAnimation = {
   },
 };
 
-const bookshopTitle = [
-  { char: "A", color: "text-white-300" },
-  { char: "B", color: "text-white-300" },
-  { char: "O", color: "text-white-300" },
-  { char: "U", color: "text-white-300" },
-  { char: "T", color: "text-white-300" },
-];
+// const bookshopTitle = [
+//   { char: "A", color: "text-white-300" },
+//   { char: "B", color: "text-white-300" },
+//   { char: "O", color: "text-white-300" },
+//   { char: "U", color: "text-white-300" },
+//   { char: "T", color: "text-white-300" },
+// ];
 
 const Page = () => {
   const [shouldAnimate, setShouldAnimate] = useState(false);
@@ -59,7 +61,7 @@ const Page = () => {
             variants={textAnimation}
             transition={textAnimation.transition}
           >
-            {bookshopTitle.map((item, index) => (
+            {/* {bookshopTitle.map((item, index) => (
               <span
                 key={index}
                 className={`${item.color} text-7xl`}
@@ -67,7 +69,7 @@ const Page = () => {
               >
                 {item.char}
               </span>
-            ))}
+            ))} */}
           </motion.h1>
         </div>
       </div>
@@ -85,21 +87,12 @@ const Page = () => {
             variants={textAnimation}
             transition={textAnimation.transition}
           >
-            {bookshopTitle.map((item, index) => (
-              <span
-                key={index}
-                className={`${item.color} text-4xl`}
-                style={{ WebkitTextStroke: "0.2px #FBDFB0" }}
-              >
-                {item.char}
-              </span>
-            ))}
+            {/* { */}
           </motion.h1>
         </div>
       </div>
-
-      <Story />
-      <Flowers />
+      <Ourjurney />
+      <Subscribe />
       <FooterEnd />
     </>
   );
