@@ -22,12 +22,12 @@ const TopNav = () => {
     {
       label: "About Us",
       link: "/about",
-      subItems: [{ name: "Mission", link: "/about#mission" }],
+      // subItems: [{ name: "Our journey", link: "/about" }],
     },
     {
       label: "Our Work",
-      link: "/work",
-      subItems: [{ name: "Education", link: "/work#education" }],
+      link: "#",
+      subItems: [{ name: "Our School", link: "/our_school" }],
     },
     {
       label: "Get Involved",
