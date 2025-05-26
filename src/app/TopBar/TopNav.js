@@ -72,28 +72,24 @@ const TopNav = () => {
         </div>
       </div>
 
-      {/* Navigation */}
+      {/* Desktop Nav */}
       <nav className="bg-white px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24 py-3 flex items-center justify-between relative">
-        {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image src={Logo} alt="Logo" width={100} height={30} priority />
         </Link>
-
-        {/* Hamburger - Mobile */}
         <button
           className="lg:hidden text-2xl"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          onClick={() => setIsMobileMenuOpen((o) => !o)}
         >
           <FaBars />
         </button>
 
-        {/* Desktop Menu */}
         <ul className="hidden lg:flex space-x-6 items-center font-medium text-base">
-          {menuItems.map((item, index) => (
+          {menuItems.map((item, idx) => (
             <motion.li
               key={item.label}
               className="relative cursor-pointer"
-              onMouseEnter={() => setHoveredMenu(index)}
+              onMouseEnter={() => setHoveredMenu(idx)}
               onMouseLeave={() => setHoveredMenu(null)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -102,9 +98,8 @@ const TopNav = () => {
                 {item.label}
               </Link>
 
-              {/* Desktop Submenu */}
               <AnimatePresence>
-                {item.subItems && hoveredMenu === index && (
+                {item.subItems && hoveredMenu === idx && (
                   <motion.ul
                     className="absolute left-0 mt-2 bg-white shadow-lg rounded-md py-2 z-50 w-48"
                     initial={{ opacity: 0, y: -10 }}
@@ -129,71 +124,81 @@ const TopNav = () => {
         </ul>
       </nav>
 
-      {/* Mobile Accordion Menu */}
+      {/* Mobile Menu with Backdrop */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden px-4 py-4 bg-white shadow-md">
-          <ul className="space-y-2">
-            {menuItems.map((item, idx) => {
-              const hasChildren = Array.isArray(item.subItems);
-              const isExpanded = expandedMobileIndex === idx;
+        <div className="lg:hidden fixed inset-0 z-50 py-40">
+          {/* Backdrop catches outside clicks */}
+          <div
+            className="absolute inset-0"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
 
-              return (
-                <li key={item.label}>
-                  {hasChildren ? (
-                    <>
-                      <button
-                        onClick={() =>
-                          setExpandedMobileIndex(isExpanded ? null : idx)
-                        }
-                        className="w-full flex justify-between items-center py-2 text-left font-medium"
-                      >
-                        <span>{item.label}</span>
-                        <span
-                          className={`transform transition-transform ${
-                            isExpanded ? "rotate-180" : "rotate-0"
-                          }`}
+          {/* Actual sliding menu panel */}
+          <div className="relative px-4 py-4 bg-white shadow-md">
+            <ul className="space-y-2">
+              {menuItems.map((item, idx) => {
+                const hasChildren = Array.isArray(item.subItems);
+                const isExpanded = expandedMobileIndex === idx;
+
+                return (
+                  <li key={item.label}>
+                    {hasChildren ? (
+                      <>
+                        <button
+                          onClick={() =>
+                            setExpandedMobileIndex(isExpanded ? null : idx)
+                          }
+                          className="w-full flex justify-between items-center py-2 text-left font-medium"
                         >
-                          ▼
-                        </span>
-                      </button>
-
-                      <AnimatePresence initial={false}>
-                        {isExpanded && (
-                          <motion.ul
-                            key={`submenu-${idx}`}
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            className="pl-4 overflow-hidden"
+                          <span>{item.label}</span>
+                          <span
+                            className={`transform transition-transform ${
+                              isExpanded ? "rotate-180" : "rotate-0"
+                            }`}
                           >
-                            {item.subItems.map((sub) => (
-                              <li key={sub.name}>
-                                <Link
-                                  href={sub.link}
-                                  onClick={() => setIsMobileMenuOpen(false)}
-                                  className="block py-1"
-                                >
-                                  {sub.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </motion.ul>
-                        )}
-                      </AnimatePresence>
-                    </>
-                  ) : (
-                    <Link
-                      href={item.link}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block py-2 font-medium"
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
+                            ▼
+                          </span>
+                        </button>
+                        <AnimatePresence initial={false}>
+                          {isExpanded && (
+                            <motion.ul
+                              key={`submenu-${idx}`}
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              className="pl-4 overflow-hidden"
+                            >
+                              {item.subItems.map((sub) => (
+                                <li key={sub.name}>
+                                  <Link
+                                    href={sub.link}
+                                    onClick={() =>
+                                      setIsMobileMenuOpen(false)
+                                    }
+                                    className="block py-1"
+                                  >
+                                    {sub.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </motion.ul>
+                          )}
+                        </AnimatePresence>
+                      </>
+                    ) : (
+                      <Link
+                        href={item.link}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block py-2 font-medium"
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       )}
     </header>
