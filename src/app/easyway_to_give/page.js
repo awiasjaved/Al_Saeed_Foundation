@@ -7,9 +7,8 @@ import FooterEnd from "../Footer/FooterEnd";
 import bgImageDesktop from "../assets/images/stab.jpg";
 import bgImageMobile from "../assets/images/stab.jpg";
 import Subscribe from "../Subscribe/page"
-import ChangeDonate from "../change_being_donate/page"
-import GiveMonthly from "../give_monthly/page"
-import DontMonthly from "../dont_monthly/page"
+import WayToGive from "../way_to_donate/page"
+
 // Animation config
 const textAnimation = {
   initial: {
@@ -79,9 +78,7 @@ const Page = () => {
         </div>
       </div>
 
-      <ChangeDonate />
-      <GiveMonthly />
-      <DontMonthly />
+     <WayToGive /> 
       <Subscribe />
       <FooterEnd />
     </>

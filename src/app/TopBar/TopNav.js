@@ -26,7 +26,7 @@ const menuItems = [
     link: "#",
     subItems: [
       { name: "Become a Member", link: "/become_a_member" },
-      { name: "Ways to Donate", link: "/get-involved#volunteer" },
+      { name: "Ways to Donate", link: "../easyway_to_give" },
     ],
   },
   { label: "News & Stories", link: "/news" },
