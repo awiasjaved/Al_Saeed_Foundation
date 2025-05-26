@@ -8,12 +8,12 @@ const schools = [
   {
     name: "AL Saeed Foundation",
     location: "Lahore, Punjab",
-    href: "/schools/meghani-family-campus-primary-morning",
+    href: "../lahore_school",
   },
   {
     name: "AL Saeed Foundations",
     location: "Sahhiwal, Punjab",
-    href: "/schools/umeed-ka-chiragh-campus",
+    href: "../sahiwal_school",
   },
   // …you can add more here
 ];

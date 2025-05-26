@@ -31,8 +31,10 @@ const TopNav = () => {
     },
     {
       label: "Get Involved",
-      link: "/get-involved",
-      subItems: [{ name: "Volunteer", link: "/get-involved#volunteer" }],
+      link: "#",
+      subItems: [{ name: "become a member", link: "../become_a_member" },
+        { name: "ways to donate", link: "/get-involved#volunteer" }
+      ],
     },
     {
       label: "News & Stories",
