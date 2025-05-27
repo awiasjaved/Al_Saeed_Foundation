@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaGraduationCap } from "react-icons/fa";
-
+import { useRouter } from "next/navigation";
 const funds = ["General Education", "Health", "Livelihood"];
 const currencies = ["PKR", "AED"];
 const presetAmounts = ["2,000", "5,000", "10,000", "15,000", "20,000"];
@@ -27,17 +27,17 @@ const paymentMethods = [
 
   const finalAmount = amount === "other" ? otherAmount : amount;
 
-  function handleContinue() {
-    console.log({
-      step,
-      selectedFund,
-      currency,
-      amount: finalAmount,
-      purpose,
-    });
-    // → wire up your next step (router.push or form submit)
-  }
-
+  // function handleContinue() {
+  //   console.log({
+  //     step,
+  //     selectedFund,
+  //     currency,
+  //     amount: finalAmount,
+  //     purpose,
+  //   });
+  //   // → wire up your next step (router.push or form submit)
+  // }
+const router = useRouter();
   return (
     <section className="py-12 bg-gray-50">
       {/* Header */}
@@ -105,7 +105,8 @@ const paymentMethods = [
   </div>
 
   <button
-    onClick={handleContinue}
+    // onClick={handleContinue}
+    onClick={() => router.push("../donate_now")} 
     className="w-full bg-green-600 text-white py-3 rounded-lg font-medium hover:bg-green-700 transition"
   >
     Donation &rarr;

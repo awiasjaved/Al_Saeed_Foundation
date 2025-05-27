@@ -2,10 +2,12 @@
 
 import React from "react";
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
 import desktopBg from "../assets/images/Al Saeed Foundation desktop.png";
 import mobileBg from "../assets/images/al saeed mobile.png";
 
 const DonateSection = () => {
+  const router = useRouter(); 
   return (
     <div className="relative w-full mt-20 md:mt-40">
       {/* Container for responsive height */}
@@ -53,7 +55,10 @@ const DonateSection = () => {
           </h2>
 
           {/* Donate Button */}
-          <button className="mt-6 sm:mt-8 bg-[#ff0000] hover:bg-[#ae0000] text-white font-semibold px-8 sm:px-10 lg:px-14 py-2 sm:py-2.5 lg:py-3 rounded-md text-base sm:text-lg shadow-md md:ml-25 ">
+          
+          <button
+          onClick={() => router.push("/donate_now")}
+          className="mt-6 sm:mt-8 bg-[#ff0000] hover:bg-[#ae0000] text-white font-semibold px-8 sm:px-10 lg:px-14 py-2 sm:py-2.5 lg:py-3 rounded-md text-base sm:text-lg shadow-md md:ml-25 ">
             Donate Now
           </button>
         </div>

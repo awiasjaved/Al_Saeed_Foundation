@@ -64,7 +64,7 @@ const TopNav = () => {
             Fundraise for ASF
           </Link>
           <Link
-            href="/donate"
+            href="../donate_now"
             className="bg-[#ff0000] text-white px-3 py-1 rounded text-sm hover:bg-[#ae0000]"
           >
             Donate Now
