@@ -36,7 +36,7 @@ const menuItems = [
     subItems: [{ name: "Annual Report", link: "/publications#report" }],
   },
   { label: "Careers", link: "/careers" },
-  { label: "Contact", link: "/contact" },
+  { label: "Contact", link: "../contactUs" },
 ];
 
 const TopNav = () => {
