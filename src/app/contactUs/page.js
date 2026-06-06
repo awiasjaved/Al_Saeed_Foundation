@@ -11,6 +11,7 @@ const locations = [
   { name: "Sahiwal, Pakistan", coords: [30.6667, 73.1064] },
 ];
 
+
 // Auto-fit map to marker bounds
 const FitToMarkers = ({ bounds }) => {
   const map = useMap();
