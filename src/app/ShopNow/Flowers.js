@@ -1,44 +1,102 @@
 "use client";
-import React from 'react';
-import Link from 'next/link';
 
-import desktopBg from '../assets/images/onespark.png';
-import mobileBg from '../assets/images/onespark-mobile.png';
-import { FaArrowRight } from 'react-icons/fa6';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+
+import desktopBg from "../assets/images/flower.png";
+import mobileBg from "../assets/images/flowermobile (2).png";
+
+import { FaArrowRight } from "react-icons/fa6";
 
 const Flowers = () => {
-  
   return (
-    <div className="relative h-[90vh] w-full">
-      {/* Responsive Background Images */}
-      <div className="absolute inset-0 z-0">
-        {/* Mobile Background */}
-        <div
-          className="block md:hidden w-full h-full bg-cover bg-center"
-          style={{ backgroundImage: `url(${mobileBg.src})` }}
-        />
-        {/* Desktop Background */}
-        <div
-          className="hidden md:block w-full h-full bg-cover bg-center"
-          style={{ backgroundImage: `url(${desktopBg.src})` }}
+    <section className="relative w-full overflow-hidden">
+      
+      {/* Mobile Image */}
+      <div className="block md:hidden relative w-full">
+        <Image
+          src={mobileBg}
+          alt="Mobile Banner"
+          priority
+          className="w-full h-auto"
         />
       </div>
 
-      {/* Content Overlay */}
-      <div className="relative w-full h-full flex flex-col items-center justify-end text-center px-4 sm:px-6 md:px-10">
-        {/* Button */}
+      {/* Desktop / Tablet / Laptop */}
+      <div className="hidden md:block relative w-full">
+        <Image
+          src={desktopBg}
+          alt="Desktop Banner"
+          priority
+          className="w-full h-auto"
+        />
+      </div>
+
+      {/* Button Overlay */}
+<div
+  className="
+    absolute
+    inset-0
+    flex
+    items-end
+    justify-center
+    z-10
+    -translate-y-24
+    sm:-translate-y-40
+    md:-translate-y-32
+    lg:-translate-y-40
+    xl:-translate-y-48
+  "
+>
         <Link href="/donate_now">
-          <button 
-           
-          className="mt-8 bg-[#ff0000] hover:bg-[#ae0000] text-white font-semibold px-14 py-3 rounded-md text-lg shadow-md md:ml-0  ">
-            <div className="flex items-center gap-2">
-              Donate Now
-              <FaArrowRight />
-            </div>
+          <button
+            className="
+              group
+              flex
+              items-center
+              gap-2
+
+              bg-red-600
+              hover:bg-red-700
+
+              text-white
+              font-semibold
+
+              text-sm
+              sm:text-base
+              md:text-lg
+              lg:text-xl
+
+              px-6
+              sm:px-8
+              md:px-10
+              lg:px-12
+
+              py-3
+              md:py-4
+
+              rounded-lg
+              shadow-xl
+
+              transition-all
+              duration-300
+              hover:scale-105
+            "
+          >
+            Donate Now
+
+            <FaArrowRight
+              className="
+                transition-transform
+                duration-300
+                group-hover:translate-x-1
+              "
+            />
           </button>
         </Link>
       </div>
-    </div>
+    </section>
   );
 };
 

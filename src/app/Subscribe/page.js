@@ -5,7 +5,7 @@ import { FaUser, FaEnvelope } from "react-icons/fa";
 
 const page = () => {
   return (
-    <section className="bg-[#2d3292] h-[60vh] flex items-center justify-center px-4">
+    <section className="bg-[#02498E] h-[60vh] flex items-center justify-center px-4">
       <div className="max-w-6xl w-full text-center">
         <h2 className="text-white text-xl md:text-2xl font-medium mb-20">
           Become a part of our vibrant community,<br />
