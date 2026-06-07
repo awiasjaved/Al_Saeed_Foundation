@@ -1,15 +1,17 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import FooterEnd from "../Footer/FooterEnd";
-// import Flowers from "../ShopNow/Flowers";
-// import Story from "../OurStory/Story";
-import bgImageDesktop from "../assets/images/stab.jpg";
-import bgImageMobile from "../assets/images/stab.jpg";
-import Subscribe from "../Subscribe/page"
-import Ourjurney from "../our_jurney/page"
 
-// Animation config
+import FooterEnd from "../Footer/FooterEnd";
+import Flowers from "../ShopNow/Flowers";
+import Subscribe from "../Subscribe/page";
+import Ourjurney from "../our_jurney/page";
+import Circle from "../slider/page";
+
+import bgImageDesktop from "../assets/images/about.png";
+import bgImageMobile from "../assets/images/stab.jpg";
+
 const textAnimation = {
   initial: {
     opacity: 0,
@@ -27,73 +29,85 @@ const textAnimation = {
   },
 };
 
-// const bookshopTitle = [
-//   { char: "A", color: "text-white-300" },
-//   { char: "B", color: "text-white-300" },
-//   { char: "O", color: "text-white-300" },
-//   { char: "U", color: "text-white-300" },
-//   { char: "T", color: "text-white-300" },
-// ];
-
 const Page = () => {
   const [shouldAnimate, setShouldAnimate] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShouldAnimate(true);
-    }, 1300); // delay in ms before animation starts
+    }, 1300);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
-      {/* Desktop Background */}
+      {/* Desktop Banner */}
       <div
-        className="hidden md:block h-[80vh] bg-cover bg-center relative"
-        style={{ backgroundImage: `url(${bgImageDesktop.src})` }}
+        className="
+          hidden
+          md:block
+          h-[70vh]
+          lg:h-[75vh]
+          xl:h-[80vh]
+          bg-cover
+          bg-top
+          bg-no-repeat
+          relative
+          mt-[80px]
+        "
+        style={{
+          backgroundImage: `url(${bgImageDesktop.src})`,
+        }}
       >
-        <div className="absolute bottom-0 text-[#97401a] flex items-center justify-center inset-0 bg-black/50">
+        <div className="absolute inset-0 bg-black/10" />
+
+        <div className="absolute inset-0 flex items-center justify-center">
           <motion.h1
-            className="text-7xl font-bold flex"
+            className="text-white text-4xl lg:text-6xl font-bold"
             initial="initial"
             animate={shouldAnimate ? "animate" : "initial"}
             variants={textAnimation}
             transition={textAnimation.transition}
           >
-            {/* {bookshopTitle.map((item, index) => (
-              <span
-                key={index}
-                className={`${item.color} text-7xl`}
-                style={{ WebkitTextStroke: "0.2px #FBDFB0" }}
-              >
-                {item.char}
-              </span>
-            ))} */}
           </motion.h1>
         </div>
       </div>
 
-      {/* Mobile Background */}
+      {/* Mobile Banner */}
       <div
-        className="block md:hidden h-[50vh] bg-cover bg-center relative"
-        style={{ backgroundImage: `url(${bgImageMobile.src})` }}
+        className="
+          block
+          md:hidden
+          h-[45vh]
+          bg-cover
+          bg-top
+          bg-no-repeat
+          relative
+          mt-[70px]
+        "
+        style={{
+          backgroundImage: `url(${bgImageMobile.src})`,
+        }}
       >
-        <div className="absolute inset-0 bg-black/60 flex items-end justify-center p-4">
+        <div className="absolute inset-0 bg-black/20 flex items-end justify-center p-4">
           <motion.h1
-            className="text-3xl sm:text-4xl font-bold text-[#97401a] text-center"
+            className="text-3xl font-bold text-white text-center"
             initial="initial"
             animate={shouldAnimate ? "animate" : "initial"}
             variants={textAnimation}
             transition={textAnimation.transition}
           >
-            {/* { */}
           </motion.h1>
         </div>
       </div>
+
+      {/* Sections */}
+      <Circle />
       <Ourjurney />
-      <Subscribe />
+      <Flowers />
       <FooterEnd />
+      <Subscribe />
     </>
   );
 };

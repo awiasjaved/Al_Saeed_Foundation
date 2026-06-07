@@ -14,8 +14,8 @@ export default function Home() {
      <VillasRoom />
      <Modal/>
       <Flowers/>
-       <Subscribe/>
       <FooterEnd />
+       <Subscribe/>
  
      
     </>

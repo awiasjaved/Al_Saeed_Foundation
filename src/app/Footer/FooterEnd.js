@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { FaPhone, FaEnvelope, FaFax } from "react-icons/fa";
-import Image from "next/image";
-
+import { FaPhone, FaEnvelope,  FaWhatsapp } from "react-icons/fa";
+import { FaFilePen } from "react-icons/fa6";
+import { LiaStampSolid } from "react-icons/lia";
 const FooterEnd = () => {
   return (
     <footer className="bg-white">
@@ -12,17 +12,36 @@ const FooterEnd = () => {
         <h2 className="text-2xl sm:text-3xl font-semibold mb-4 text-gray-800">
           Contact Us
         </h2>
-        <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-          Nawaz Mor Bagrian Chowk Green Town Lahore <br />
-          Lahore, Pakistan.
+        <p className="text-gray-900 leading-relaxed text-lg sm:text-base">
+          Campus NO#1: Head office: Al Kausar Campus
+Baba Makhan Gujjar Street Nawaz Mor Green Town,Lahore<br/>
+Campus NO#2: Al Majeed Campus
+House # 107 Street#1 Imamiya colony Jahaz Ground Sahiwal.<br/>
+Campus NO#3: Hajan Ghafooran Campus
+Ghanj Shakar Colony Street No:1 Rakh Pull Pakpattan Shreef<br/>
         </p>
 
+<div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mt-6">
+          <div className="flex items-center gap-2">
+            <FaFilePen className="text-green-600 text-xl sm:text-2xl" />
+            <span className="text-sm sm:text-base text-red-600">
+            SUB REGISTRAR PUNJAB REG.NO:RP/12172-L/S2021/436
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <LiaStampSolid className="text-green-600 text-xl sm:text-2xl" />
+            <span className="text-sm sm:text-base text-red-600">
+            Punjab Charity Commission PB-LHR-8241831548532160
+            </span>
+          </div>
+          
+        </div>
         {/* Contact Icons */}
         <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mt-6">
           <div className="flex items-center gap-2">
             <FaPhone className="text-green-600 text-xl sm:text-2xl" />
             <span className="text-sm sm:text-base">
-              0301-8417786 / 0301-4005270
+              0303-5726653 / 0301-8417786 / 0301-4005270
             </span>
           </div>
           <div className="flex items-center gap-2">
@@ -32,25 +51,15 @@ const FooterEnd = () => {
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <FaFax className="text-green-600 text-xl sm:text-2xl" />
-            <span className="text-sm sm:text-base">+92-42-XXXXXXX</span>
+            <FaWhatsapp className="text-green-600 text-xl sm:text-2xl" />
+            <span className="text-sm sm:text-base">+923035726653 / +923018417786 / +923014005270
+            </span>
           </div>
         </div>
       </div>
 
       {/* Bottom Footer */}
-      <div className="bg-red-600 text-white text-sm sm:text-md py-3 px-4 flex flex-col sm:flex-row justify-between items-center">
-        <p className="mb-2 sm:mb-0">© 2025 Al Saeed Foundation. All Rights Reserved.</p>
-        <div className="flex flex-wrap gap-4">
-          <a href="#" className="hover:underline">
-            Privacy Policy
-          </a>
-          <a href="#" className="hover:underline">
-            Contact Us
-          </a>
-          <span className="text-sm sm:text-base">Managed By: Al Saeed Group</span>
-        </div>
-      </div>
+      
     </footer>
   );
 };

@@ -2,83 +2,141 @@
 
 import React from "react";
 import Image from "next/image";
-
-// Data for each timeline event
+import officeImg from "../assets/images/office.jpeg";
+import staffImg from "../assets/images/staff.png";
+import lookingImg from"../assets/images/goodlooking.jpeg";
+import studentImg from"../assets/images/student1.jpeg";
+import student1Img from"../assets/images/namazstudent.png";
+import student2Img from"../assets/images/pgclass.png";
+import student3Img from"../assets/images/oneclass.jpeg";
+import student4Img from"../assets/images/bundle student.png";
+import student5Img from"../assets/images/twoclass.jpeg";
+import student6Img from"../assets/images/threeclass.png";
+import student7Img from"../assets/images/fourclass.jpeg";
+import student8Img from"../assets/images/fiveclass.jpeg";
+import student9Img from"../assets/images/sixclass.jpeg";
+import student10Img from"../assets/images/sevenclass.jpeg";
+import student11Img from"../assets/images/eight.jpeg";
+import student12Img from"../assets/images/nine.jpeg";
+import student13Img from"../assets/images/ten.png";
 const events = [
-  {
-    year: "2020",
-    images: [
-      "/images/20-left.jpg",
-      "/images/20-right.jpg",
-    ],
+ {
+    image: officeImg,
   },
   {
-    year: "2019",
-    images: [
-      "/images/19-left.jpg",
-      "/images/19-right.jpg",
-    ],
+    image: staffImg,
   },
   {
-    year: "2018",
-    images: [
-      "/images/18-left.jpg",
-      "/images/18-right.jpg",
-    ],
+    
+    image: lookingImg,
+   
   },
+  {
+
+    image: studentImg, 
+  
+  },
+  {
+    
+    image: student3Img,
+   
+  },
+  {
+ 
+    image: student2Img,
+
+  },
+  {
+ 
+    image: student4Img ,
+
+  },
+  {
+ 
+    image: student5Img,
+
+  },
+  {
+ 
+    image:student6Img,
+
+  },
+  {
+    image: student7Img,
+  },
+  {
+    image: student8Img,
+  },
+  {
+    image: student9Img,
+  },
+   {
+        image: student11Img,
+      },
+      {
+        image: student10Img,
+      },
+      {
+        image: student12Img,
+      },
+        {
+        image: student13Img,
+      },
+      
+    
 ];
 
-// Single event component
-const TimelineEvent = ({ year, images }) => (
-  <div className="mb-20 flex flex-col items-center">
-    {/* Year marker */}
-    <div className="relative z-10 flex items-center justify-center w-16 h-16 bg-orange-500 rounded-full text-white font-bold text-lg">
-      {year}
-    </div>
-
-    {/* Images grid */}
-    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
-      {images.map((src, i) => (
-        <div
-          key={i}
-          className={`overflow-hidden rounded-lg shadow-lg ${
-            i % 2 === 0 ? "md:mr-4" : "md:ml-4"
-          }`}
-        >
-          <Image
-            src={src}
-            alt={`${year} image ${i + 1}`}
-            width={600}
-            height={400}
-            className="object-cover w-full h-64 sm:h-80"
-          />
-        </div>
-      ))}
-    </div>
-  </div>
-);
-
-// Main timeline section
 export default function TimelineSection() {
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-center text-3xl sm:text-4xl font-semibold mb-4">
-          Our journey through 4 years!
+    <section className="py-16 bg-gray-100">
+      <div className="max-w-7xl mx-auto px-4">
+
+        {/* Heading */}
+        <h2 className="text-center text-3xl md:text-5xl font-bold text-[#02498E] mb-4">
+          Our Journey Through The Years
         </h2>
-        <p className="text-center text-gray-600 mb-12">
-          The journey of a thousand schools began with a single idea and soon turned into a global movement.
+
+        <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12">
+          Explore the milestones and achievements of our foundation over
+          the years and see how we continue to create impact.
         </p>
 
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-1/2 top-0 h-full w-px bg-gray-300 transform -translate-x-1/2" />
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 
-          {/* Render each event */}
-          {events.map((event) => (
-            <TimelineEvent key={event.year} {...event} />
+          {events.map((event, index) => (
+            <div
+              key={index}
+              className="
+                bg-white
+                rounded-2xl
+                overflow-hidden
+                shadow-md
+                hover:shadow-2xl
+                transition-all
+                duration-300
+                hover:-translate-y-2
+                border
+                border-gray-200
+              "
+            >
+              {/* Image */}
+              <div className="relative h-56 overflow-hidden">
+                <Image
+                  src={event.image}
+                  alt={event.title}
+                  fill
+                  className="object-cover hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+
+              {/* Content */}
+            
+            </div>
           ))}
+
         </div>
+
       </div>
     </section>
   );

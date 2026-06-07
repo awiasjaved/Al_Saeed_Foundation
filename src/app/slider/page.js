@@ -1,75 +1,232 @@
 "use client";
 
 import React from "react";
-// import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section className="py-16 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-32 bg-white min-h-screen">
-      {/* Heading + intro */}
-      <div className="max-w-5xl mx-auto text-center">
-     <h2
-  className="text-2xl sm:text-4xl lg:text-5xl text-[#ff0000] font-semibold mb-6 pt-20 leading-snug text-center px-4"
+    <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
+      <div className="container mx-auto px-5 sm:px-8 md:px-10 lg:px-16 xl:px-24">
+
+        {/* Heading */}
+        <div className="max-w-5xl mx-auto text-center">
+
+  <span className="inline-block bg-red-100 text-red-600 font-semibold px-4 py-2 rounded-full text-sm md:text-base mb-5">
+    About Our Foundation
+  </span>
+
+  <h2
+    className="
+      font-[Montserrat]
+      font-extrabold
+      text-[#ff0000]
+      leading-tight
+      text-center
+      text-3xl
+      sm:text-4xl
+      md:text-5xl
+      lg:text-6xl
+      xl:text-7xl
+    "
+  >
+    About Al-Saeed Foundation
+  </h2>
+
+  <div className="w-24 h-1 bg-red-500 mx-auto mt-5 rounded-full"></div>
+
+  {/* English Paragraph */}
+  <p
+    className="
+      font-[Poppins]
+      text-gray-700
+      leading-loose
+      mt-8
+      text-lg
+      sm:text-xl
+      md:text-2xl
+      lg:text-2xl
+      xl:text-3xl
+      text-justify
+      md:text-center
+      max-w-5xl
+      mx-auto
+    "
+  >
+    The Al-Saeed Foundation is a charitable organization committed
+    to uplifting the lives of impoverished individuals and orphaned
+    children through education, healthcare, and social welfare
+    initiatives. We believe every child deserves an opportunity
+    to learn, grow, and build a brighter future.
+  </p>
+
+  {/* Urdu Paragraph */}
+  <p
+    className="
+      font-[Noto Nastaliq Urdu, serif]
+      text-gray-800
+      leading-loose
+      mt-6
+      text-lg
+      sm:text-xl
+      md:text-2xl
+      lg:text-2xl
+      xl:text-3xl
+      text-right
+      max-w-5xl
+      mx-auto
+    "
+    dir="rtl"
+  >
+    السعید فاؤنڈیشن ایک فلاحی ادارہ ہے جو غریب افراد اور یتیم بچوں کی زندگیوں کو تعلیم، صحت اور سماجی بہبود کے اقدامات کے ذریعے بہتر بنانے کے لیے پرعزم ہے۔ ہم یقین رکھتے ہیں کہ ہر بچے کو سیکھنے، ترقی کرنے اور ایک روشن مستقبل بنانے کا موقع ملنا چاہیے۔
+  </p>
+
+</div>
+
+        {/* Cards */}
+      {/* Vision / Mission / Values */}
+<div
+  className="
+  mt-16
+  grid
+  grid-cols-1
+  md:grid-cols-2
+  xl:grid-cols-3
+  gap-8
+  lg:gap-10
+  "
 >
-  About Al-Saeed Foundation
-</h2>
 
+  {/* Vision */}
+  <div className="bg-white shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 rounded-3xl p-8 text-center border border-gray-100">
 
-        <p
-          className="text-base sm:text-lg leading-relaxed text-justify sm:text-center pt-6"
-          
-        >
-          The Al-Saeed Foundation is a charitable organization committed to uplifting the lives of
-          impoverished individuals and orphaned children. Through its various programs and initiatives,
-          the foundation provides essential support, including education, healthcare, and social
-          assistance, to those in need. With a mission to make a positive impact on the lives of the less
-          fortunate, the Al Saeed Foundation plays a vital role in fostering hope and opportunities for a
-          better future. We are a compassionate and dedicated non-profit organization committed to serving
-          those facing economic hardship and orphanhood. Our mission is to provide essential support—education,
-          healthcare, and social assistance—to help vulnerable individuals lead better and more fulfilling lives.
-        </p>
-      </div>
+    <h3 className="font-[Montserrat] font-bold text-green-600 text-3xl lg:text-4xl mb-3">
+      Vision
+    </h3>
 
-      {/* Three columns: Vision / Mission / Values */}
-      <div className="max-w-6xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-3 gap-12">
-        {/* Vision */}
-        <div
-          className="text-center px-4"
-       
-        >
-          <h3 className="text-3xl sm:text-4xl font-semibold text-green-500 mb-2">Vision</h3>
-          <h4 className="text-lg font-medium mb-4">Positive Change</h4>
-          <p className="text-base leading-relaxed">
-            To remove barriers of class and privilege to make the citizens of Pakistan agents of positive
-            change.
-          </p>
-        </div>
+    <h4 className="font-semibold text-xl text-gray-800 mb-4">
+      A Brighter Future for Every Underprivileged Child
+    </h4>
 
-        {/* Mission */}
-        <div
-          className="text-center px-4"
-          
-        >
-          <h3 className="text-3xl sm:text-4xl font-semibold text-orange-500 mb-2">Mission</h3>
-          <h4 className="text-lg font-medium mb-4">Education / Future</h4>
-          <p className="text-base leading-relaxed">
-            Through the power of quality education enabling moral, spiritual, and intellectual enlightenment.
-          </p>
-        </div>
+    <p className="text-gray-600 text-lg leading-relaxed">
+      Empowering disadvantaged children through education,
+      care, and opportunity, enabling them to grow with
+      dignity, confidence, and hope.
+    </p>
+  </div>
 
-        {/* Values */}
-        <div
-          className="text-center px-4"
-         
-        >
-          <h3 className="text-3xl sm:text-4xl font-semibold text-green-700 mb-2">Values</h3>
-          <ul className="text-base sm:text-lg space-y-1 mt-4">
-            <li>Sincerity</li>
-            <li>Service</li>
-            <li>Beauty</li>
-            <li>Positive Conduct</li>
-          </ul>
-        </div>
+  {/* Mission */}
+  <div className="bg-white shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 rounded-3xl p-8 text-center border border-gray-100">
+
+    <h3 className="font-[Montserrat] font-bold text-orange-500 text-3xl lg:text-4xl mb-3">
+      Mission
+    </h3>
+
+    <h4 className="font-semibold text-xl text-gray-800 mb-4">
+      Empowering Lives Through Education and Care
+    </h4>
+
+    <p className="text-gray-600 text-lg leading-relaxed">
+      To provide quality education, compassionate support,
+      and essential resources that empower children and
+      families to overcome challenges and build a brighter future.
+    </p>
+  </div>
+
+  {/* Values */}
+  <div className="bg-white shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 rounded-3xl p-8 text-center border border-gray-100">
+
+    <h3 className="font-[Montserrat] font-bold text-green-700 text-3xl lg:text-4xl mb-3">
+      Values
+    </h3>
+
+    <ul className="space-y-3 text-lg text-gray-700 font-medium">
+      <li>Sincerity</li>
+      <li>Service</li>
+      <li>Compassion</li>
+      <li>Integrity</li>
+      <li>Positive Conduct</li>
+    </ul>
+  </div>
+
+</div>
+
+{/* Urdu Section */}
+<div className="mt-24">
+
+  <div className="text-center mb-12">
+
+   
+
+   
+
+    <div className="w-24 h-1 bg-red-500 mx-auto rounded-full"></div>
+
+  </div>
+
+  <div
+    className="
+    grid
+    grid-cols-1
+    md:grid-cols-2
+    xl:grid-cols-3
+    gap-8
+    "
+  >
+
+    {/* Urdu Vision */}
+    <div className="bg-gradient-to-br from-green-50 to-white shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 rounded-3xl p-8 text-center border border-green-100">
+
+      <h3 className="text-green-600 font-bold text-3xl mb-4">
+        اقدار
+      </h3>
+
+      <h4 className="text-xl font-semibold text-gray-800 mb-4">
+        ہر مستحق بچے کے لیے روشن مستقبل
+      </h4>
+
+      <p className="text-gray-700 leading-loose text-lg">
+        محروم اور نادار بچوں کو تعلیم، تربیت اور مواقع فراہم کرکے
+        انہیں باوقار، پُراعتماد اور امید سے بھرپور زندگی گزارنے
+        کے قابل بنانا۔
+      </p>
+    </div>
+
+    {/* Urdu Mission */}
+    <div className="bg-gradient-to-br from-orange-50 to-white shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 rounded-3xl p-8 text-center border border-orange-100">
+
+      <h3 className="text-orange-500 font-bold text-3xl mb-4">
+        مقصد
+      </h3>
+
+      <h4 className="text-xl font-semibold text-gray-800 mb-4">
+        تعلیم، رہنمائی اور بہتر مستقبل
+      </h4>
+
+      <p className="text-gray-700 leading-loose text-lg">
+        معیاری تعلیم، اخلاقی تربیت اور سماجی معاونت کے ذریعے
+        یتیم اور مستحق بچوں کو بااختیار بنانا تاکہ وہ معاشرے
+        کے مفید اور کامیاب شہری بن سکیں۔
+      </p>
+    </div>
+
+    {/* Urdu Values */}
+    <div className="bg-gradient-to-br from-blue-50 to-white shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 rounded-3xl p-8 text-center border border-blue-100">
+
+      <h3 className="text-blue-600 font-bold text-3xl mb-4">
+        اقدار
+      </h3>
+
+      <ul className="space-y-4 text-lg text-gray-700 font-medium">
+        <li>اخلاص</li>
+        <li>خدمت</li>
+        <li>ہمدردی</li>
+        <li>دیانت داری</li>
+        <li>مثبت کردار</li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
       </div>
     </section>
   );
