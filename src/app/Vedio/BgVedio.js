@@ -9,12 +9,14 @@ import desktopBg1 from "../assets/images/landskap.png";
 import desktopBg2 from "../assets/images/bgstudent.png";
 import desktopBg3 from "../assets/images/landskapstudent.png";
 import desktopBg4 from "../assets/images/doctorbg.png";
+import desktopBg5 from "../assets/images/labour.png";
 
 // Mobile Images
-import mobileBg1 from "../assets/images/mobile secreen.png";
-import mobileBg2 from "../assets/images/mobileredblue.png";
+import mobileBg1 from "../assets/images/mobilesecreen.png";
+import mobileBg2 from "../assets/images/mobilebgstudent (2).png";
 import mobileBg3 from "../assets/images/mobilebgstudent.png";
-import mobileBg4 from "../assets/images/doctormobilebg.png";
+import mobileBg4 from "../assets/images/doctormobile.png";
+import mobileBg5 from "../assets/images/labourmobile.png";
 
 const DonateSection = () => {
   const router = useRouter();
@@ -45,158 +47,261 @@ const DonateSection = () => {
       urdu: "ایک عطیہ، ہزار زندگیوں کی روشنی",
       english: "One donation can light up thousands of lives.",
     },
+    {
+      desktop: desktopBg5,
+      mobile: mobileBg5,
+      urdu: "تعلیم ہر بچے کا حق",
+      english: "Support education and stop child labor.",
+    },
   ];
 
-  // Change Image Every 8 Seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % slides.length);
     }, 8000);
 
     return () => clearInterval(interval);
-  }, [slides.length]);
+  }, []);
 
   return (
-   <section className="relative w-full overflow-hidden mt-[80px] md:mt-[110px]">
-  <div
-    className="
-      relative
+    <div
+      className="
+    relative
+    w-full
+    h-[55vh]
+    sm:h-[65vh]
+    md:h-[75vh]
+    lg:h-[85vh]
+    xl:h-[90vh]
+    2xl:h-screen
+    overflow-hidden
+    mt-[70px]
+    md:mt-[120px]
+  "
+    >
+      {" "}
+      {/* SLIDES */}
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
+            currentImage === index ? "opacity-100 z-10" : "opacity-0 z-0"
+          }`}
+        >
+          {/* IMAGE */}
+
+          <div className="hidden md:block absolute inset-0">
+            <Image
+              src={slide.desktop}
+              alt="banner"
+              fill
+              priority={index === 0}
+              quality={100}
+              sizes="100vw"
+              className="
+      object-cover
+      object-center
       w-full
-      h-[55vh]
-      sm:h-[60vh]
-      md:h-[70vh]
-      lg:h-[80vh]
-      xl:h-[90vh]
-      2xl:h-screen
-      overflow-hidden
+      h-full
+      select-none
     "
-  >
-    {/* Images Fade Effect */}
-    {slides.map((slide, index) => (
-      <div
-        key={index}
-        className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${
-          currentImage === index ? "opacity-100 z-10" : "opacity-0 z-0"
-        }`}
-      >
-        {/* Mobile Image */}
-        <div className="block md:hidden w-full h-full relative">
-          <Image
-            src={slide.mobile}
-            alt="mobile banner"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
+            />
+          </div>
+
+          <div className="block md:hidden absolute inset-0">
+            <Image
+              src={slide.mobile}
+              alt="banner"
+              fill
+              priority={index === 0}
+              quality={100}
+              sizes="100vw"
+              className="
+      object-cover
+      object-center
+      w-full
+      h-full
+      select-none
+    "
+            />
+          </div>
+
+          {/* LEFT BLUE SHADOW */}
+          <div
+            className="
+    md:hidden
+    absolute
+    inset-0
+    bg-gradient-to-t
+    from-[#0b1f35]/95
+    via-[#0b1f35]/65
+    to-transparent
+  "
           />
+          <div
+            className="
+    hidden md:block
+    absolute
+    inset-y-0
+    left-0
+    w-[60%]
+    lg:w-[55%]
+    bg-gradient-to-r
+    from-[#0b1f35]/95
+    via-[#0b1f35]/60
+    to-transparent
+  "
+          />
+          {/* DARK OVERLAY */}
+          {/* <div className="absolute inset-0 bg-black/20" /> */}
+        </div>
+      ))}
+      {/* CONTENT WRAPPER */}
+      <div className="absolute inset-0 z-20">
+        {/* DESKTOP CONTENT */}
+        <div
+          className="
+    hidden
+    md:flex
+    h-full
+    items-center
+    px-8
+    lg:px-16
+    xl:px-24
+  "
+        >
+          <div className="max-w-[750px]">
+            <h1
+              className="
+        text-white
+        font-extrabold
+        leading-relaxed
+        text-4xl
+        lg:text-5xl
+        xl:text-6xl
+        2xl:text-7xl
+      "
+              style={{ fontFamily: "Noto Nastaliq Urdu" }}
+            >
+              {slides[currentImage].urdu}
+            </h1>
+
+            <h2
+              className="
+        mt-4
+        text-white
+        font-semibold
+        italic
+        leading-relaxed
+        text-xl
+        lg:text-2xl
+        xl:text-3xl
+      "
+            >
+              {slides[currentImage].english}
+            </h2>
+
+            <button
+              onClick={() => router.push("/donate_now")}
+              className="
+                  mt-6
+                  lg:mt-8
+                  bg-red-600
+                  hover:bg-red-700
+                  text-white
+                  font-bold
+                  text-sm
+                  md:text-base
+                  lg:text-lg
+                  px-6
+                  lg:px-8
+                  py-3
+                  rounded-lg
+                  shadow-2xl
+                  transition-all
+                  duration-300
+                  hover:scale-105
+                "
+            >
+              Donate Now
+            </button>
+          </div>
         </div>
 
-        {/* Tablet + Desktop Image */}
-        <div className="hidden md:block w-full h-full relative">
-          <Image
-            src={slide.desktop}
-            alt="desktop banner"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-        </div>
+        {/* 📱 MOBILE CONTENT (BOTTOM FIXED) */}
+        <div
+          className="
+    md:hidden
+    absolute
+    bottom-0
+    left-0
+    right-0
+    z-30
+    px-4
+    sm:px-6
+    pb-8
+    sm:pb-10
+  "
+        >
+          <div className="text-center max-w-[500px] mx-auto">
+            <h1
+              className="
+        text-white
+        font-extrabold
+        leading-relaxed
+        text-xl
+        sm:text-2xl
+      "
+              style={{
+                fontFamily: "Noto Nastaliq Urdu",
+                textShadow: "0 4px 12px rgba(0,0,0,0.8)",
+              }}
+            >
+              {slides[currentImage].urdu}
+            </h1>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/20" />
+            <h2
+              className="
+        mt-2
+        text-white
+        italic
+        leading-relaxed
+        text-sm
+        sm:text-base
+        px-2
+      "
+            >
+              {slides[currentImage].english}
+            </h2>
+
+            <button
+              onClick={() => router.push("/donate_now")}
+              className="
+            mt-5
+            bg-red-600
+            hover:bg-red-700
+            text-white
+            font-bold
+            text-sm
+            sm:text-base
+            px-6
+            sm:px-8
+            py-2.5
+            sm:py-3
+            rounded-lg
+            shadow-2xl
+            transition-all
+            duration-300
+            hover:scale-105
+            min-w-[150px]
+          "
+            >
+              Donate Now
+            </button>
+          </div>
+        </div>
       </div>
-    ))}
-
-    {/* Content */}
- {/* Content */}
-<div className="absolute inset-0 z-20 flex items-end md:items-center">
-  <div className="w-full px-5 sm:px-8 md:px-12 lg:px-16 xl:px-24 pb-12 sm:pb-16 md:pb-0">
-    <div className="max-w-full sm:max-w-[80%] md:max-w-[650px] text-center md:text-left">
-
-      {/* Urdu Heading */}
-      <h1
-        className="
-          text-white
-          font-extrabold
-          leading-snug
-          text-2xl
-          sm:text-3xl
-          md:text-4xl
-          lg:text-5xl
-          xl:text-6xl
-          2xl:text-7xl
-        "
-        style={{
-          fontFamily: "Noto Nastaliq Urdu",
-          WebkitTextStroke: "1px white",
-          textShadow: `
-            0 2px 6px rgba(0,0,0,0.6),
-            0 6px 18px rgba(0,0,0,0.5),
-            0 0 25px rgba(255,0,0,0.35)
-          `,
-        }}
-      >
-        {slides[currentImage].urdu}
-      </h1>
-
-      {/* English Heading */}
-      <h2
-        className="
-          mt-3
-          text-white
-          font-bold
-          italic
-          leading-snug
-          text-base
-          sm:text-xl
-          md:text-2xl
-          lg:text-3xl
-          xl:text-4xl
-          2xl:text-5xl
-        "
-        style={{
-          textShadow: "0 6px 20px rgba(0,0,0,0.8)",
-        }}
-      >
-        {slides[currentImage].english}
-      </h2>
-
-      {/* Button */}
-      <button
-        onClick={() => router.push("/donate_now")}
-        className="
-          mt-5
-          md:mt-8
-          bg-red-600
-          hover:bg-red-700
-          text-white
-          font-bold
-          text-sm
-          sm:text-base
-          md:text-lg
-          lg:text-xl
-          px-5
-          sm:px-7
-          md:px-8
-          lg:px-10
-          py-2.5
-          md:py-3.5
-          rounded-lg
-          shadow-2xl
-          transition-all
-          duration-300
-          hover:scale-105
-        "
-      >
-        Donate Now
-      </button>
-
     </div>
-  </div>
-</div>
-  </div>
-</section>
   );
 };
 

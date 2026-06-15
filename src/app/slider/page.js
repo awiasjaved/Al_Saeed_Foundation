@@ -4,8 +4,8 @@ import React from "react";
 
 const About = () => {
   return (
-    <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
-      <div className="container mx-auto px-5 sm:px-8 md:px-10 lg:px-16 xl:px-24">
+    <section className="bg-gradient-to-b from-white via-slate-50 to-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 overflow-hidden">
+     <div className="max-w-[1600px] mx-auto px-5 sm:px-8 md:px-10 lg:px-16 xl:px-24">
 
         {/* Heading */}
         <div className="max-w-5xl mx-auto text-center">
@@ -15,42 +15,41 @@ const About = () => {
   </span>
 
   <h2
-    className="
-      font-[Montserrat]
-      font-extrabold
-      text-[#ff0000]
-      leading-tight
-      text-center
-      text-3xl
-      sm:text-4xl
-      md:text-5xl
-      lg:text-6xl
-      xl:text-7xl
-    "
-  >
-    About Al-Saeed Foundation
-  </h2>
+  className="
+    font-[Montserrat]
+    font-extrabold
+    text-[#ff0000]
+    leading-tight
+    text-center
+    text-3xl
+    sm:text-4xl
+    md:text-5xl
+    lg:text-6xl
+    xl:text-7xl
+    2xl:text-8xl
+  "
+>
+  About Al-Saeed Foundation
+</h2>
 
   <div className="w-24 h-1 bg-red-500 mx-auto mt-5 rounded-full"></div>
 
   {/* English Paragraph */}
   <p
-    className="
-      font-[Poppins]
-      text-gray-700
-      leading-loose
-      mt-8
-      text-lg
-      sm:text-xl
-      md:text-2xl
-      lg:text-2xl
-      xl:text-3xl
-      text-justify
-      md:text-center
-      max-w-5xl
-      mx-auto
-    "
-  >
+  className="
+    font-[Poppins]
+    text-gray-700
+    leading-relaxed
+    mt-8
+    text-base
+    sm:text-lg
+    md:text-xl
+    lg:text-2xl
+    text-center
+    max-w-5xl
+    mx-auto
+  "
+>
     The Al-Saeed Foundation is a charitable organization committed
     to uplifting the lives of impoverished individuals and orphaned
     children through education, healthcare, and social welfare
@@ -59,23 +58,22 @@ const About = () => {
   </p>
 
   {/* Urdu Paragraph */}
-  <p
-    className="
-      font-[Noto Nastaliq Urdu, serif]
-      text-gray-800
-      leading-loose
-      mt-6
-      text-lg
-      sm:text-xl
-      md:text-2xl
-      lg:text-2xl
-      xl:text-3xl
-      text-right
-      max-w-5xl
-      mx-auto
-    "
-    dir="rtl"
-  >
+<p
+  className="
+    font-[Noto Nastaliq Urdu,serif]
+    text-gray-800
+    mt-8
+    text-lg
+    sm:text-xl
+    md:text-2xl
+    lg:text-[30px]
+    leading-[2.7]
+    text-right
+    max-w-5xl
+    mx-auto
+  "
+  dir="rtl"
+>
     السعید فاؤنڈیشن ایک فلاحی ادارہ ہے جو غریب افراد اور یتیم بچوں کی زندگیوں کو تعلیم، صحت اور سماجی بہبود کے اقدامات کے ذریعے بہتر بنانے کے لیے پرعزم ہے۔ ہم یقین رکھتے ہیں کہ ہر بچے کو سیکھنے، ترقی کرنے اور ایک روشن مستقبل بنانے کا موقع ملنا چاہیے۔
   </p>
 
@@ -85,67 +83,131 @@ const About = () => {
       {/* Vision / Mission / Values */}
 <div
   className="
-  mt-16
-  grid
-  grid-cols-1
-  md:grid-cols-2
-  xl:grid-cols-3
-  gap-8
-  lg:gap-10
+    mt-16
+    grid
+    grid-cols-1
+    md:grid-cols-2
+    xl:grid-cols-3
+    gap-6
+    lg:gap-8
+    items-stretch
   "
 >
 
   {/* Vision */}
-  <div className="bg-white shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 rounded-3xl p-8 text-center border border-gray-100">
+  <div
+  className="
+    group
+    relative
+    overflow-hidden
+    rounded-[32px]
+    bg-white
+    p-8
+    lg:p-10
+    border
+    border-green-100
+    shadow-lg
+    hover:shadow-[0_20px_60px_rgba(34,197,94,0.20)]
+    hover:-translate-y-3
+    transition-all
+    duration-500
+    h-full
+    flex
+    flex-col
+  "
+>
+  <div className="absolute top-0 left-0 w-full h-1 bg-green-500"></div>
 
-    <h3 className="font-[Montserrat] font-bold text-green-600 text-3xl lg:text-4xl mb-3">
-      Vision
-    </h3>
+  <h3 className="font-bold text-green-600 text-3xl lg:text-4xl mb-4">
+    Vision
+  </h3>
 
-    <h4 className="font-semibold text-xl text-gray-800 mb-4">
-      A Brighter Future for Every Underprivileged Child
-    </h4>
+  <h4 className="font-semibold text-gray-800 text-xl mb-4">
+    A Brighter Future for Every Underprivileged Child
+  </h4>
 
-    <p className="text-gray-600 text-lg leading-relaxed">
-      Empowering disadvantaged children through education,
-      care, and opportunity, enabling them to grow with
-      dignity, confidence, and hope.
-    </p>
-  </div>
+  <p className="text-gray-600 text-lg leading-relaxed flex-grow">
+    Empowering disadvantaged children through education,
+    care, and opportunity, enabling them to grow with
+    dignity, confidence, and hope.
+  </p>
+</div>
 
   {/* Mission */}
-  <div className="bg-white shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 rounded-3xl p-8 text-center border border-gray-100">
+ <div
+  className="
+    group
+    relative
+    overflow-hidden
+    rounded-[32px]
+    bg-white
+    p-8
+    lg:p-10
+    border
+    border-orange-100
+    shadow-lg
+    hover:shadow-[0_20px_60px_rgba(249,115,22,0.20)]
+    hover:-translate-y-3
+    transition-all
+    duration-500
+    h-full
+    flex
+    flex-col
+  "
+>
+  <div className="absolute top-0 left-0 w-full h-1 bg-orange-500"></div>
 
-    <h3 className="font-[Montserrat] font-bold text-orange-500 text-3xl lg:text-4xl mb-3">
-      Mission
-    </h3>
+  <h3 className="font-bold text-orange-500 text-3xl lg:text-4xl mb-4">
+    Mission
+  </h3>
 
-    <h4 className="font-semibold text-xl text-gray-800 mb-4">
-      Empowering Lives Through Education and Care
-    </h4>
+  <h4 className="font-semibold text-gray-800 text-xl mb-4">
+    Empowering Lives Through Education and Care
+  </h4>
 
-    <p className="text-gray-600 text-lg leading-relaxed">
-      To provide quality education, compassionate support,
-      and essential resources that empower children and
-      families to overcome challenges and build a brighter future.
-    </p>
-  </div>
+  <p className="text-gray-600 text-lg leading-relaxed flex-grow">
+    To provide quality education, compassionate support,
+    and essential resources that empower children and
+    families to overcome challenges and build a brighter future.
+  </p>
+</div>
 
   {/* Values */}
-  <div className="bg-white shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 rounded-3xl p-8 text-center border border-gray-100">
+ <div
+  className="
+    group
+    relative
+    overflow-hidden
+    rounded-[32px]
+    bg-white
+    p-8
+    lg:p-10
+    border
+    border-blue-100
+    shadow-lg
+    hover:shadow-[0_20px_60px_rgba(59,130,246,0.20)]
+    hover:-translate-y-3
+    transition-all
+    duration-500
+    h-full
+    flex
+    flex-col
+  "
+>
+  <div className="absolute top-0 left-0 w-full h-1 bg-blue-500"></div>
 
-    <h3 className="font-[Montserrat] font-bold text-green-700 text-3xl lg:text-4xl mb-3">
-      Values
-    </h3>
+  <h3 className="font-bold text-blue-600 text-3xl lg:text-4xl mb-4">
+    Values
+  </h3>
 
-    <ul className="space-y-3 text-lg text-gray-700 font-medium">
-      <li>Sincerity</li>
-      <li>Service</li>
-      <li>Compassion</li>
-      <li>Integrity</li>
-      <li>Positive Conduct</li>
-    </ul>
-  </div>
+  <ul className="space-y-4 text-lg text-gray-700 font-medium flex-grow">
+    <li>✓ Sincerity</li>
+    <li>✓ Service</li>
+    <li>✓ Compassion</li>
+    <li>✓ Integrity</li>
+    <li>✓ Positive Conduct</li>
+  </ul>
+</div>
 
 </div>
 
