@@ -109,21 +109,21 @@ const DonateSection = () => {
           </div>
 
           <div className="block md:hidden absolute inset-0">
-            <Image
-              src={slide.mobile}
-              alt="banner"
-              fill
-              priority={index === 0}
-              quality={100}
-              sizes="100vw"
-              className="
-      object-cover
-      object-center
-      w-full
-      h-full
-      select-none
-    "
-            />
+           <Image
+  src={slide.mobile}
+  alt="banner"
+  fill
+  priority={index === 0}
+  quality={100}
+  sizes="100vw"
+  className="
+    object-cover
+    object-top
+    w-full
+    h-full
+    select-none
+  "
+/>
           </div>
 
           {/* LEFT BLUE SHADOW */}
@@ -133,8 +133,8 @@ const DonateSection = () => {
     absolute
     inset-0
     bg-gradient-to-t
-    from-[#0b1f35]/95
-    via-[#0b1f35]/65
+    from-[#0b1f35]/75
+    via-[#0b1f35]/50
     to-transparent
   "
           />
