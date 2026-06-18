@@ -61,7 +61,8 @@ const Flowers = () => {
           drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]
           [text-shadow:_2px_2px_0_rgb(0_0_0),_-2px_-2px_0_rgb(0_0_0),_2px_-2px_0_rgb(0_0_0),_-2px_2px_0_rgb(0_0_0)]
         ">
-          Your support can change the future of deserving children
+          Your support can change<br />
+          the future of deserving children
         </p>
 
         {/* Button */}

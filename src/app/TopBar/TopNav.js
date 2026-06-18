@@ -15,11 +15,12 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const menuItems = [
   { label: "About Us", link: "/about" },
-  {
-    label: "Our Work",
-    link: "#",
-    subItems: [{ name: "Our School", link: "/our_school" }],
-  },
+  { label: "Ways to Donate", link: "/our_school" },
+  // {
+  //   label: "Ways to Donate",
+  //   link: "#",
+  //   subItems: [{ name: "Our School", link: "/our_school" }],
+  // },
   {
     label: "Get Involved",
     link: "#",

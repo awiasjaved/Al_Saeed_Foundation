@@ -1,14 +1,21 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+
 import FooterEnd from "../Footer/FooterEnd";
-// import Flowers from "../ShopNow/Flowers";
-// import Story from "../OurStory/Story";
-import bgImageDesktop from "../assets/images/stab.jpg";
-import bgImageMobile from "../assets/images/stab.jpg";
-import Subscribe from "../Subscribe/page"
-import Ourschool from "../our_schools/page"
-// Animation config
+import Flowers from "../ShopNow/Flowers";
+import Subscribe from "../Subscribe/page";
+
+
+import Ourschool from "../our_schools/page";
+import Shows from "../shows/page";
+import Details from "../details/page";
+import Sponser from "../sponser/page"
+import bgImageDesktop from "../assets/images/waysdonate.png";
+import bgImageMobile from "../assets/images/waysmobile.png";
+
 const textAnimation = {
   initial: {
     opacity: 0,
@@ -26,76 +33,255 @@ const textAnimation = {
   },
 };
 
-// const bookshopTitle = [
-//   { char: "A", color: "text-white-300" },
-//   { char: "B", color: "text-white-300" },
-//   { char: "O", color: "text-white-300" },
-//   { char: "U", color: "text-white-300" },
-//   { char: "T", color: "text-white-300" },
-// ];
-
 const Page = () => {
   const [shouldAnimate, setShouldAnimate] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShouldAnimate(true);
-    }, 1300); // delay in ms before animation starts
+    }, 1300);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
-      {/* Desktop Background */}
+      {/* Desktop Banner */}
       <div
-        className="hidden md:block h-[80vh] bg-cover bg-center relative"
-        style={{ backgroundImage: `url(${bgImageDesktop.src})` }}
+        className="
+          hidden
+          md:block
+          h-[70vh]
+          lg:h-[75vh]
+          xl:h-[80vh]
+          bg-cover
+          bg-center
+          bg-no-repeat
+          relative
+          mt-[120px]
+          overflow-hidden
+        "
+        style={{
+          backgroundImage: `url(${bgImageDesktop.src})`,
+        }}
       >
-        <div className="absolute bottom-0 text-[#97401a] flex items-center justify-center inset-0 bg-black/50">
-          <motion.h1
-            className="text-7xl font-bold flex"
-            initial="initial"
-            animate={shouldAnimate ? "animate" : "initial"}
-            variants={textAnimation}
-            transition={textAnimation.transition}
-          >
-            {/* {bookshopTitle.map((item, index) => (
-              <span
-                key={index}
-                className={`${item.color} text-7xl`}
-                style={{ WebkitTextStroke: "0.2px #FBDFB0" }}
+        {/* Left Side Gradient Shadow */}
+        <div
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-r
+            from-[#0b1f35]/90
+            via-[#0b1f35]/30
+            to-transparent
+          "
+        />
+
+        {/* Content */}
+        <div className="absolute inset-0 flex items-center z-10">
+          <div className="max-w-4xl px-8 lg:px-20">
+            <motion.div
+              initial="initial"
+              animate={shouldAnimate ? "animate" : "initial"}
+              variants={textAnimation}
+              transition={textAnimation.transition}
+            >
+              {/* Urdu */}
+             <h1
+  className="
+    text-white
+    text-2xl
+    lg:text-5xl
+    xl:text-6xl
+    font-bold
+    whitespace-nowrap
+    mb-4
+  "
+  dir="rtl"
+  style={{
+    fontFamily: "Noto Nastaliq Urdu",
+    textShadow:
+      "0 4px 15px rgba(0,0,0,0.6), 0 0 20px rgba(0,0,0,0.4)",
+  }}
+>
+  ایک عطیہ، ہزار زندگیوں کی روشنی
+</h1>
+
+              {/* English */}
+              <p
+                className="
+                  text-white
+                  text-lg
+                  lg:text-2xl
+                  xl:text-3xl
+                  font-medium
+                  max-w-2xl
+                "
+                style={{
+                  textShadow: "0 4px 12px rgba(0,0,0,0.6)",
+                }}
               >
-                {item.char}
-              </span>
-            ))} */}
-          </motion.h1>
+                One donation can light up thousands of lives.
+              </p>
+
+              {/* Donate Button */}
+              <button
+                onClick={() => router.push("/donate_now")}
+                className="
+                  mt-6
+                  lg:mt-8
+                  bg-red-600
+                  hover:bg-red-700
+                  text-white
+                  font-bold
+                  text-sm
+                  md:text-base
+                  lg:text-lg
+                  px-6
+                  lg:px-8
+                  py-3
+                  rounded-lg
+                  shadow-2xl
+                  transition-all
+                  duration-300
+                  hover:scale-105
+                "
+              >
+                Donate Now
+              </button>
+            </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Background */}
-      <div
-        className="block md:hidden h-[50vh] bg-cover bg-center relative"
-        style={{ backgroundImage: `url(${bgImageMobile.src})` }}
+      {/* Mobile Banner */}
+<div
+  className="
+    block
+    md:hidden
+    h-[55vh]
+    sm:h-[60vh]
+    bg-cover
+    bg-center
+    bg-no-repeat
+    relative
+    mt-[70px]
+  "
+  style={{
+    backgroundImage: `url(${bgImageMobile.src})`,
+  }}
+>
+  {/* Bottom Shadow Overlay */}
+  <div
+    className="
+      absolute
+      inset-0
+      bg-gradient-to-t
+      from-[#0b1f35]/95
+      via-[#0b1f35]/60
+      to-transparent
+    "
+  />
+
+  {/* Content */}
+  <div className="absolute inset-0 z-20 flex items-end">
+    <div className="w-full px-4 sm:px-6 pb-8 sm:pb-12">
+      <motion.div
+        initial="initial"
+        animate={shouldAnimate ? "animate" : "initial"}
+        variants={textAnimation}
+        transition={textAnimation.transition}
+        className="max-w-full text-center"
       >
-        <div className="absolute inset-0 bg-black/60 flex items-end justify-center p-4">
-          <motion.h1
-            className="text-3xl sm:text-4xl font-bold text-[#97401a] text-center"
-            initial="initial"
-            animate={shouldAnimate ? "animate" : "initial"}
-            variants={textAnimation}
-            transition={textAnimation.transition}
-          >
-            {/* { */}
-          </motion.h1>
-        </div>
-      </div>
+        {/* Urdu Heading */}
+        <h1
+          dir="rtl"
+          className="
+            text-white
+            font-extrabold
+            leading-snug
+            text-[24px]
+            sm:text-[32px]
+            mb-2
+          "
+          style={{
+            fontFamily: "Noto Nastaliq Urdu",
+            WebkitTextStroke: "0.5px white",
+            textShadow: `
+              0 2px 6px rgba(0,0,0,0.6),
+              0 6px 18px rgba(0,0,0,0.5),
+              0 0 25px rgba(255,255,255,0.25)
+            `,
+          }}
+        >
+          ایک عطیہ، ہزار زندگیوں کی روشنی
+        </h1>
 
+        {/* English Heading */}
+        <h2
+          className="
+            mt-3
+            text-white
+            font-bold
+            italic
+            leading-relaxed
+            text-sm
+            sm:text-base
+            max-w-[280px]
+            sm:max-w-[340px]
+            mx-auto
+          "
+          style={{
+            textShadow: "0 6px 20px rgba(0,0,0,0.8)",
+          }}
+        >
+          One donation can light up thousands of lives.
+        </h2>
+
+        {/* Donate Button */}
+        <button
+          onClick={() => router.push("/donate_now")}
+          className="
+            mt-5
+            bg-red-600
+            hover:bg-red-700
+            text-white
+            font-bold
+            text-sm
+            sm:text-base
+            px-6
+            sm:px-8
+            py-2.5
+            sm:py-3
+            rounded-lg
+            shadow-2xl
+            transition-all
+            duration-300
+            hover:scale-105
+            min-w-[150px]
+          "
+        >
+          Donate Now
+        </button>
+      </motion.div>
+    </div>
+  </div>
+</div>
+      {/* Sections */}
+      <Details />
+       <Shows />
+      <Sponser />
       <Ourschool />
-      <Subscribe />
+      <Flowers />
       <FooterEnd />
+      <Subscribe />
     </>
   );
 };
 
 export default Page;
+
+
+  
+    
