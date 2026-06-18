@@ -17,12 +17,7 @@ import mobileBg2 from "../assets/images/mobilebgstudent (2).png";
 import mobileBg3 from "../assets/images/mobilebgstudent.png";
 import mobileBg4 from "../assets/images/doctormobile.png";
 import mobileBg5 from "../assets/images/labourmobile.png";
-
-const DonateSection = () => {
-  const router = useRouter();
-  const [currentImage, setCurrentImage] = useState(0);
-
-  const slides = [
+ const slides = [
     {
       desktop: desktopBg1,
       mobile: mobileBg1,
@@ -55,6 +50,11 @@ const DonateSection = () => {
     },
   ];
 
+const DonateSection = () => {
+  const router = useRouter();
+  const [currentImage, setCurrentImage] = useState(0);
+
+ 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % slides.length);
@@ -80,7 +80,7 @@ const DonateSection = () => {
   "
     >
       {" "}
-      {/* SLIDES */}
+      
       {slides.map((slide, index) => (
         <div
           key={index}

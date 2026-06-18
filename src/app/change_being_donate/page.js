@@ -27,16 +27,7 @@ const paymentMethods = [
 
   const finalAmount = amount === "other" ? otherAmount : amount;
 
-  // function handleContinue() {
-  //   console.log({
-  //     step,
-  //     selectedFund,
-  //     currency,
-  //     amount: finalAmount,
-  //     purpose,
-  //   });
-  //   // → wire up your next step (router.push or form submit)
-  // }
+
 const router = useRouter();
   return (
     <section className="py-12 bg-gray-50">
@@ -92,24 +83,29 @@ const router = useRouter();
 
   {/* Stacked list with logos */}
   <div className="flex flex-col items-center space-y-4 mb-6">
-    {[
-      { name: "JazzCash", logo: "/logos/jazzcash.png" },
-      { name: "Easypaisa", logo: "/logos/easypaisa.png" },
-      { name: "Bank Transfer", logo: "/logos/bank.png" },
-    ].map(({ name, logo }) => (
-      <div key={name} className="flex items-center space-x-3">
-        <img src={logo} alt={name} className="h-6 w-6 object-contain" />
-        <span className="text-gray-700 font-medium">{name}</span>
-      </div>
-    ))}
+   {[
+  { name: "JazzCash", logo: "/logos/jazzcash.png" },
+  { name: "Easypaisa", logo: "/logos/easypaisa.png" },
+  { name: "Bank Transfer", logo: "/logos/bank.png" },
+].map(({ name, logo }) => (
+  <div key={name} className="flex items-center space-x-3">
+    <Image
+      src={logo}
+      alt={name}
+      width={24}
+      height={24}
+      className="h-6 w-6 object-contain"
+    />
+    <span className="text-gray-700 font-medium">{name}</span>
+  </div>
+))}
   </div>
 
   <button
-    // onClick={handleContinue}
     onClick={() => router.push("../donate_now")} 
     className="w-full bg-green-600 text-white py-3 rounded-lg font-medium hover:bg-green-700 transition"
   >
-    Donation &rarr;
+    Donation 
   </button>
 </motion.div>
 

@@ -427,15 +427,17 @@ const onlinePayments = [
               transition
             "
           >
-          <div className="flex justify-center mb-4">
-  <img
+        <div className="flex justify-center mb-4">
+  <Image
     src={
       item.title === "JazzCash"
         ? "/images/jazz.png"
         : "/images/easypaisa.png"
     }
     alt={item.title}
-    className="h-20 object-contain"
+    width={120}
+    height={80}
+    className="h-20 w-auto object-contain"
   />
 </div>
 
