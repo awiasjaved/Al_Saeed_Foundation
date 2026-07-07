@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import FooterEnd from "../Footer/FooterEnd";
 // import Flowers from "../ShopNow/Flowers";
 // import Story from "../OurStory/Story";
-import bgImageDesktop from "../assets/images/stab.jpg";
-import bgImageMobile from "../assets/images/stab.jpg";
+import bgImageDesktop from "../assets/images/certify.jpeg";
+import bgImageMobile from "../assets/images/stab.png";
 import Subscribe from "../Subscribe/page"
 import ChangeDonate from "../change_being_donate/page"
 import GiveMonthly from "../give_monthly/page"
@@ -44,11 +44,21 @@ const Page = () => {
   return (
     <>
       {/* Desktop Background */}
-      <div
-        className="hidden md:block h-[80vh] bg-cover bg-center relative"
-        style={{ backgroundImage: `url(${bgImageDesktop.src})` }}
-      >
-        <div className="absolute bottom-0 text-[#97401a] flex items-center justify-center inset-0 bg-black/50">
+   <div
+  className="
+    hidden md:block
+    relative
+    mt-20
+    h-[80vh]
+    bg-cover
+    bg-center
+    bg-no-repeat
+  "
+  style={{
+    backgroundImage: `url(${bgImageDesktop.src})`,
+  }}
+>
+        <div className="absolute bottom-0 text-[#97401a] flex items-center justify-center ">
           <motion.h1
             className="text-7xl font-bold flex"
             initial="initial"

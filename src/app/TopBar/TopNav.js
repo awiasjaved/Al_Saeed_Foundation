@@ -22,12 +22,9 @@ const menuItems = [
   //   subItems: [{ name: "Our School", link: "/our_school" }],
   // },
   {
-    label: "Get Involved",
-    link: "#",
-    subItems: [
-      { name: "Become a Member", link: "/become_a_member" },
-      { name: "Ways to Donate", link: "/easyway_to_give" },
-    ],
+    label: "Certified",
+    link: "/become_a_member",
+   
   },
   { label: "News & Stories", link: "/news" },
   {
